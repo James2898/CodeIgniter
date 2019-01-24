@@ -983,6 +983,50 @@ class Admin extends CI_Controller
 
 
 
+
+    function borrowers($param1 = '', $param2 = '', $param3 = '')
+    {
+        if ($this->session->userdata('admin_login') != 1)
+            redirect('login', 'refresh');
+        if ($param1 == 'create') {
+            $data['student_id']        = $this->input->post('student_id');
+            $data['book_id'] = $this->input->post('book_id');
+            $data['date']       = $this->input->post('date');
+            $this->db->insert('borrowers', $data);
+            $this->session->set_flashdata('flash_message' , get_phrase('data_added_successfully'));
+            redirect(base_url() . 'index.php?admin/borrowers', 'refresh');
+        }
+        if ($param1 == 'edit') {
+            $data['name']        = $this->input->post('name');
+            $data['description'] = $this->input->post('description');
+            $data['price']       = $this->input->post('price');
+            $data['author']      = $this->input->post('author');
+            $data['class_id']    = $this->input->post('class_id');
+            $data['status']      = $this->input->post('status');
+            
+            $this->db->where('book_id', $param2);
+            $this->db->update('book', $data);
+            $this->session->set_flashdata('flash_message' , get_phrase('data_updated'));
+            redirect(base_url() . 'index.php?admin/borrowers', 'refresh');
+        } else if ($param1 == 'edit') {
+            $page_data['edit_data'] = $this->db->get_where('book', array(
+                'book_id' => $param2
+            ))->result_array();
+        }
+        if ($param1 == 'delete') {
+            $this->db->where('borrower_id', $param2);
+            $this->db->delete('borrowers');
+            $this->session->set_flashdata('flash_message' , get_phrase('data_deleted'));
+            redirect(base_url() . 'index.php?admin/borrowers', 'refresh');
+        }
+        $page_data['books']      = $this->db->get('borrowers')->result_array();
+        $page_data['page_name']  = 'borrowers';
+        $page_data['page_title'] = get_phrase('Manage Borrowers');
+        $this->load->view('backend/index', $page_data);
+        
+    }
+
+
     function librarian($param1 = '', $param2 = '', $param3 = ''){
          if ($this->session->userdata('admin_login') != 1)
             redirect('login', 'refresh');
@@ -994,6 +1038,7 @@ class Admin extends CI_Controller
             $this->session->set_flashdata('flash_message' , get_phrase('data_updated'));
             redirect(base_url() . 'index.php?admin/book', 'refresh');
         }
+
     }
     /**********MANAGE LIBRARY / BOOKS********************/
     function book($param1 = '', $param2 = '', $param3 = '')

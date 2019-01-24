@@ -132,6 +132,26 @@
             </a>
         </li>
 
+         <!-- LIBRARY -->
+        <li class="<?php if ($page_name == 'book') echo 'active'; ?> ">
+            <a href="#">
+                <i class="entypo-book"></i>
+                <span><?php echo get_phrase('library'); ?></span>
+            </a>
+            <ul>
+                <li class="<?php if($page_name == 'books') echo 'active' ?>">
+                    <a href="<?php echo base_url(); ?>index.php?admin/book">
+                        <span><i class="entypo-dot"></i><?php echo get_phrase('Manage Books') ?></span>
+                    </a>
+                </li>
+                <li class="<?php if($page_name == 'books') echo 'active' ?>">
+                    <a href="<?php echo base_url(); ?>index.php?admin/borrowers">
+                        <span><i class="entypo-dot"></i><?php echo get_phrase('Manage Borrowers') ?></span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
        
 
         <!-- NOTICEBOARD -->

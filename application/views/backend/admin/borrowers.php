@@ -1,51 +1,36 @@
-                  <?php 
-                    $librarian = $this->db->get(librarian)->result_array();
-                    foreach ($librarian as $row) 
-                    $teacher_id =  $row['teacher_id'];
-                  ?>
 
-              <a href="#" onclick="showAjaxModal('<?php echo base_url();?>index.php?modal/popup/modal_librarian/<?php echo $row['librarian_id'];?>');"
-                class="btn btn-primary pull-left">
-                  <?php 
-                    $teachers   =   $this->db->get_where('teacher' , array('teacher_id'=>$teacher_id))->result_array();
-                                foreach($teachers as $row):
-                    echo get_phrase('Librarian: '.$row['name'] );
-                    endforeach
-                  ?>
-
-                </a> 
-                <a href="javascript:;" onclick="showAjaxModal('<?php echo base_url();?>index.php?modal/popup/modal_book_add/');" 
+            <a href="javascript:;" onclick="showAjaxModal('<?php echo base_url();?>index.php?modal/popup/modal_borrower_add/');" 
                 class="btn btn-primary pull-right">
                   <i class="entypo-plus-circled"></i>
-                  <?php echo get_phrase('add_new_book');?>
+                  <?php echo get_phrase('Add New Borrower');?>
                 </a> 
+            <!-- SELECT * FROM student, teacher, librarian, books -->
                 <br><br>
                <table class="table table-bordered datatable" id="table_export">
                     <thead>
                         <tr>
                             <th>#</th>
                             <th><div><?php echo get_phrase('name');?></div></th>
-                            <th><div><?php echo get_phrase('description');?></div></th>
-                            <th><div><?php echo get_phrase('author');?></div></th>
-                            <th><div><?php echo get_phrase('class_id');?></div></th>
-                            <th><div><?php echo get_phrase('status');?></div></th>
-                            <th><div><?php echo get_phrase('price');?></div></th>
+                            <th><div><?php echo get_phrase('Book borrowed');?></div></th>
+                            <th><div><?php echo get_phrase('Date');?></div></th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                             $count = 1; 
-                            $parents   =   $this->db->get('book' )->result_array();
-                            foreach($parents as $row):?>
+                            $this->db->select('student.name as student_name, borrowers.date, book.name as book_name, borrower_id');
+                            $this->db->from('borrowers');
+                            $this->db->join('student','student.student_id = borrowers.student_id','left');
+                            $this->db->join('book','book.book_id = borrowers.book_id','left');
+                            
+                            $query = $this->db->get()->result_array();
+                            foreach($query as $row):?>
                         <tr>
                             <td><?php echo $count++;?></td>
-                            <td><?php echo $row['name'];?></td>
-                            <td><?php echo $row['description'];?></td>
-                            <td><?php echo $row['author'];?></td>
-                            <td><?php echo $row['class_id'];?></td>
-                            <td><?php echo $row['status'];?></td>
-                            <td><?php echo $row['price'];?></td>
+                            <td><?php echo $row['student_name'];?></td>
+                            <td><?php echo $row['book_name'];?></td>
+                            <td><?php echo $row['date'];?></td>
                             <td>
                                 
                                 <div class="btn-group">
@@ -56,7 +41,7 @@
                                         
                                         <!-- teacher EDITING LINK -->
                                         <li>
-                                            <a href="#" onclick="showAjaxModal('<?php echo base_url();?>index.php?modal/popup/modal_book_edit/<?php echo $row['book_id'];?>');">
+                                            <a href="#" onclick="showAjaxModal('<?php echo base_url();?>index.php?modal/popup/modal_borrower_edit/<?php echo $row['borrower_id'];?>');">
                                                 <i class="entypo-pencil"></i>
                                                     <?php echo get_phrase('edit');?>
                                                 </a>
@@ -65,7 +50,7 @@
                                         
                                         <!-- teacher DELETION LINK -->
                                         <li>
-                                            <a href="#" onclick="confirm_modal('<?php echo base_url();?>index.php?admin/book/delete/<?php echo $row['book_id'];?>');">
+                                            <a href="#" onclick="confirm_modal('<?php echo base_url();?>index.php?admin/borrowers/delete/<?php echo $row['borrower_id'];?>');">
                                                 <i class="entypo-trash"></i>
                                                     <?php echo get_phrase('delete');?>
                                                 </a>
