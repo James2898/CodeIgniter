@@ -20,6 +20,7 @@
 					</div>
 
 					<div class="form-group">
+
 						<label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('parent');?></label>
                         
 						<div class="col-sm-5">
@@ -37,6 +38,11 @@
 							  ?>
                           </select>
 						</div> 
+						 <a href="javascript:;" onclick="showAjaxModal('<?php echo base_url();?>index.php?modal/popup/modal_parent_add/');" 
+		            	class="btn btn-success ">
+		                	<i class="entypo-plus-circled"></i>
+		            		<?php echo get_phrase('Add_New_Parent');?>
+		                </a> 
 					</div>
 					
 					<div class="form-group">

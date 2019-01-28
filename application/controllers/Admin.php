@@ -197,6 +197,45 @@ class Admin extends CI_Controller
         }
     }
      /****MANAGE PARENTS CLASSWISE*****/
+
+
+    function parent_student_reg($param1 = '', $param2 = '', $param3 = '')
+    {
+        if ($this->session->userdata('admin_login') != 1)
+            redirect('login', 'refresh');
+        if ($param1 == 'create') {
+            $data['name']                   = $this->input->post('name');
+            $data['email']                  = $this->input->post('email');
+            /*$data['password']             = $this->input->post('password');*/
+            $data['phone']                  = $this->input->post('phone');
+            $data['address']                = $this->input->post('address');
+            $data['profession']             = $this->input->post('profession');
+            $this->db->insert('parent', $data);
+            $this->session->set_flashdata('flash_message' , get_phrase('New Parent Data Added Successfully'));
+            $this->email_model->account_opening_email('parent', $data['email']); //SEND EMAIL ACCOUNT OPENING EMAIL
+            redirect(base_url() . 'index.php?admin/student_add/', 'refresh');
+        }
+        if ($param1 == 'edit') {
+            $data['name']                   = $this->input->post('name');
+            $data['email']                  = $this->input->post('email');
+            $data['phone']                  = $this->input->post('phone');
+            $data['address']                = $this->input->post('address');
+            $data['profession']             = $this->input->post('profession');
+            $this->db->where('parent_id' , $param2);
+            $this->db->update('parent' , $data);
+            $this->session->set_flashdata('flash_message' , get_phrase('data_updated'));
+            redirect(base_url() . 'index.php?admin/parent/', 'refresh');
+        }
+        if ($param1 == 'delete') {
+            $this->db->where('parent_id' , $param2);
+            $this->db->delete('parent');
+            $this->session->set_flashdata('flash_message' , get_phrase('data_deleted'));
+            redirect(base_url() . 'index.php?admin/parent/', 'refresh');
+        }
+        $page_data['page_title']    = get_phrase('all_parents');
+        $page_data['page_name']  = 'parent';
+        $this->load->view('backend/index', $page_data);
+    }
     function parent($param1 = '', $param2 = '', $param3 = '')
     {
         if ($this->session->userdata('admin_login') != 1)
