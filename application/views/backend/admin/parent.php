@@ -34,13 +34,7 @@
                                         Action <span class="caret"></span>
                                     </button>
                                     <ul class="dropdown-menu dropdown-default pull-right" role="menu">
-                                        <li>
-                                            <a href="#" onclick="showAjaxModal('<?php echo base_url();?>index.php?modal/popup/modal_parent_student/<?php echo $row['parent_id'];?>');">
-                                                <i class="fa fa-group"></i>
-                                                    <?php echo get_phrase('view children');?>
-                                                </a>
-                                                        </li>
-                                        <li class="divider"></li>
+                                        
                                         <!-- teacher EDITING LINK -->
                                         <li>
                                             <a href="#" onclick="showAjaxModal('<?php echo base_url();?>index.php?modal/popup/modal_parent_edit/<?php echo $row['parent_id'];?>');">
@@ -57,7 +51,6 @@
                                                     <?php echo get_phrase('delete');?>
                                                 </a>
                                                         </li>
-
                                     </ul>
                                 </div>
                                 
