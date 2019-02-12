@@ -1053,10 +1053,47 @@ class Admin extends CI_Controller
             $data['date_borrowed']          = $this->input->post('date_borrowed');
             $data['date_returned']          = $this->input->post('date_returned');
             $data['status']                 = $this->input->post('status');
+            $book_id = $data['book_id'];
             $this->db->insert('borrowers', $data);
             $this->db->set('qty','qty-1',false);
             $this->db->where('book_id',$data['book_id']);
             $this->db->update('book');
+
+            //check if exists in borrowers
+            $query = $this->db->get_where('borrower_frequency',array('student_id'=>$data['student_id']));
+            $count = $query->num_rows();
+
+            if($count === 0){
+                $data = array(
+                        'student_id' => $data['student_id'],
+                        'borrower_frequency' => '1'
+
+                );
+                $this->db->insert('borrower_frequency',$data);
+            }else{
+                $this->db->set('borrower_frequency','borrower_frequency+1',false);
+                $this->db->where('student_id',$data['student_id']);
+                $this->db->update('borrower_frequency');
+            }
+
+
+            //check if exists in book_frequency
+            $query = $this->db->get_where('book_frequency',array('book_id'=>$data['book_id']));
+            $count = $query->num_rows();
+
+            if($count === 0){
+                $data = array(
+                        'book_id' => $data['book_id'],
+                        'book_frequency' => '1'
+
+                );
+                $this->db->insert('book_frequency',$data);
+            }else{
+                $this->db->set('book_frequency','book_frequency+1',false);
+                $this->db->where('book_id',$book_id);
+                $this->db->update('book_frequency');
+            }
+
             $this->session->set_flashdata('flash_message' , get_phrase('data_added_successfully'));
             redirect(base_url() . 'index.php?admin/borrowers', 'refresh');
         }
