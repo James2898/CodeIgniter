@@ -115,6 +115,25 @@ class Admin extends CI_Controller
 		$this->load->view('backend/index', $page_data);
 	}
 
+    function student_status($param1 = '',$param2 = '',$param3 = ''){
+        if ($this->session->userdata('admin_login') != 1)
+            redirect('login', 'refresh');
+
+        if ($param1 == 'edit') {
+            $data['status']           = $this->input->post('status');
+            
+            $this->db->where('student_id', $param2);
+            $this->db->update('student', $data);
+            $this->crud_model->clear_cache();
+            $this->session->set_flashdata('flash_message' , get_phrase('data_updated'));
+            redirect(base_url() . 'index.php?admin/student_status/', 'refresh');
+        } 
+
+        $page_data['page_name']     = 'student_status';
+        $page_data['page_title']    = get_phrase('student_status');
+        $this->load->view('backend/index', $page_data);
+    }
+
     function student_marksheet($student_id = '') {
         if ($this->session->userdata('admin_login') != 1)
             redirect('login', 'refresh');
@@ -153,6 +172,7 @@ class Admin extends CI_Controller
             $data['email']          = $this->input->post('email');
             $data['password']       = $this->input->post('password');
             $data['class_id']       = $this->input->post('class_id');
+            $data['status']       = $this->input->post('status');
             if ($this->input->post('section_id') != '') {
                 $data['section_id'] = $this->input->post('section_id');
             }
@@ -1028,29 +1048,54 @@ class Admin extends CI_Controller
         if ($this->session->userdata('admin_login') != 1)
             redirect('login', 'refresh');
         if ($param1 == 'create') {
-            $data['student_id']        = $this->input->post('student_id');
-            $data['book_id'] = $this->input->post('book_id');
-            $data['date']       = $this->input->post('date');
+            $data['student_id']             = $this->input->post('student_id');
+            $data['book_id']                = $this->input->post('book_id');
+            $data['date_borrowed']          = $this->input->post('date_borrowed');
+            $data['date_returned']          = $this->input->post('date_returned');
+            $data['status']                 = $this->input->post('status');
             $this->db->insert('borrowers', $data);
+            $this->db->set('qty','qty-1',false);
+            $this->db->where('book_id',$data['book_id']);
+            $this->db->update('book');
             $this->session->set_flashdata('flash_message' , get_phrase('data_added_successfully'));
             redirect(base_url() . 'index.php?admin/borrowers', 'refresh');
         }
         if ($param1 == 'edit') {
-            $data['name']        = $this->input->post('name');
-            $data['description'] = $this->input->post('description');
-            $data['price']       = $this->input->post('price');
-            $data['author']      = $this->input->post('author');
-            $data['class_id']    = $this->input->post('class_id');
-            $data['status']      = $this->input->post('status');
+            $data['student_id']             = $this->input->post('student_id');
+            $data['book_id']                = $this->input->post('book_id');
+            $data['date_borrowed']          = $this->input->post('date_borrowed');
+            $data['date_returned']          = $this->input->post('date_returned');
+            $data['status']                 = $this->input->post('status');
+            $this->db->where('borrower_id', $param2);
+            $this->db->update('borrowers', $data);
             
-            $this->db->where('book_id', $param2);
-            $this->db->update('book', $data);
+            if($data['status'] == 'returned'){
+                $this->db->set('qty','qty+1',false);
+                $this->db->where('book_id',$data['book_id']);
+                $this->db->update('book');
+            }else{
+                $this->db->set('qty','qty-1',false);
+                $this->db->where('book_id',$data['book_id']);
+                $this->db->update('book');
+            }
+
             $this->session->set_flashdata('flash_message' , get_phrase('data_updated'));
             redirect(base_url() . 'index.php?admin/borrowers', 'refresh');
-        } else if ($param1 == 'edit') {
-            $page_data['edit_data'] = $this->db->get_where('book', array(
-                'book_id' => $param2
-            ))->result_array();
+        }
+        if($param1 == 'return'){
+            $date_returned = date('m-d-Y');
+            $data['status']                 = 'returned';
+            $data['date_returned']          =  $date_returned;
+            $this->db->where('borrower_id', $param2);
+            $this->db->update('borrowers', $data);
+
+
+            $this->db->set('qty','qty+1',false);
+            $this->db->where('book_id',$param3);
+            $this->db->update('book');
+            
+            $this->session->set_flashdata('flash_message' , get_phrase('data_updated'));
+            redirect(base_url() . 'index.php?admin/borrowers', 'refresh');
         }
         if ($param1 == 'delete') {
             $this->db->where('borrower_id', $param2);
@@ -1091,6 +1136,7 @@ class Admin extends CI_Controller
             $data['author']      = $this->input->post('author');
             $data['class_id']    = $this->input->post('class_id');
             $data['status']      = $this->input->post('status');
+            $data['qty']         = $this->input->post('qty');
             $this->db->insert('book', $data);
             $this->session->set_flashdata('flash_message' , get_phrase('data_added_successfully'));
             redirect(base_url() . 'index.php?admin/book', 'refresh');
@@ -1102,7 +1148,7 @@ class Admin extends CI_Controller
             $data['author']      = $this->input->post('author');
             $data['class_id']    = $this->input->post('class_id');
             $data['status']      = $this->input->post('status');
-            
+            $data['qty']         = $this->input->post('qty');
             $this->db->where('book_id', $param2);
             $this->db->update('book', $data);
             $this->session->set_flashdata('flash_message' , get_phrase('data_updated'));

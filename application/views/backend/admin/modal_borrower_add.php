@@ -37,14 +37,17 @@
                               <?php 
 									$book = $this->db->get('book')->result_array();
 									foreach($book as $row3):
+										if($row3['qty'] > 0){
 										?>
                                 		<option value="<?php echo $row3['book_id'];?>"
                                         	<?php if($row['book_id'] == $row3['book_id'])echo 'selected';?>>
 													<?php echo $row3['name'];?>
                                          </option>
-	                                <?php
+	                        	<?php
+	                        		}
 									endforeach;
-								  ?>
+								  	?>
+
                           </select>
 						</div> 
                     </div>
@@ -57,6 +60,7 @@
 					</div>
                     <div class="form-group">
 						<div class="col-sm-offset-3 col-sm-5">
+							<input type="hidden" name="status" value="borrowed">
 							<button type="submit" class="btn btn-default"><?php echo get_phrase('Submit');?></button>
 						</div>
 					</div>

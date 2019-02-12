@@ -59,6 +59,24 @@
 		$(".dataTables_wrapper select").select2({
 			minimumResultsForSearch: -1
 		});
+
+		var datatable = $("#table_1").dataTable();
+		
+		$(".dataTables_wrapper select").select2({
+			minimumResultsForSearch: -1
+		});
+
+		var datatable = $("#table_2").dataTable();
+		
+		$(".dataTables_wrapper select").select2({
+			minimumResultsForSearch: -1
+		});
+
+		var datatable = $("#table_3").dataTable();
+		
+		$(".dataTables_wrapper select").select2({
+			minimumResultsForSearch: -1
+		});
 	});
 		
 </script>

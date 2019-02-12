@@ -61,6 +61,14 @@
                         
 						<div class="col-sm-5">
 							<input type="text" class="form-control" name="price" value="<?php echo $row['price'];?>">
+							<input type="hidden" name="qty" value="<?php echo ($row['price'])?>">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('quantity');?></label>
+                        
+						<div class="col-sm-5">
+							<input type="text" class="form-control" name="qty" value="<?php echo $row['qty'];?>">
 						</div>
 					</div>
                     

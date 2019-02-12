@@ -79,6 +79,13 @@
                     </ul>
                 </li>
 
+                <!-- STUDENT ADMISSION -->
+                <li class="<?php if ($page_name == 'student_payment') echo 'active'; ?> ">
+                    <a href="<?php echo base_url(); ?>index.php?admin/student_status">
+                        <span><i class="entypo-dot"></i> <?php echo get_phrase('student_status'); ?></span>
+                    </a>
+                </li>
+
             </ul>
         </li>
 

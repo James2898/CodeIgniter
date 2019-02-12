@@ -122,12 +122,11 @@
                     <tbody>
                         <?php 
                                 $students   =   $this->db->get_where('student' , array(
-                                    'class_id'=>$class_id , 'section_id' => $row['section_id']
+                                    'class_id'=>$class_id , 'section_id' => $row['section_id'], 'status' => 'active'
                                 ))->result_array();
                                 foreach($students as $row):?>
                         <tr>
                             <td><?php echo $row['roll'];?></td>
-                            
                             <td><?php echo $row['name'];?></td>
                             <td><?php echo $row['address'];?></td>
                             <td><?php echo $row['email'];?></td>

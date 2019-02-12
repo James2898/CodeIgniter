@@ -24,7 +24,7 @@
 						<label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('parent');?></label>
                         
 						<div class="col-sm-5">
-							<select name="parent_id" class="form-control select2">
+							<select name="parent_id"  class="form-control select2" data-validate="required" data-message-required="<?php echo get_phrase('value_required');?>" >
                               <option value=""><?php echo get_phrase('select');?></option>
                               <?php 
 								$parents = $this->db->get('parent')->result_array();
@@ -51,7 +51,7 @@
 						<div class="col-sm-5">
 							<select name="class_id" class="form-control" data-validate="required" id="class_id" 
 								data-message-required="<?php echo get_phrase('value_required');?>"
-									onchange="return get_class_sections(this.value)">
+									onchange="return get_class_sections(this.value)" >
                               <option value=""><?php echo get_phrase('select');?></option>
                               <?php 
 								$classes = $this->db->get('class')->result_array();
@@ -70,7 +70,7 @@
 					<div class="form-group">
 						<label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('section');?></label>
 		                    <div class="col-sm-5">
-		                        <select name="section_id" class="form-control" id="section_selector_holder">
+		                        <select name="section_id" class="form-control" id="section_selector_holder" data-validate="required" data-message-required="<?php echo get_phrase('value_required');?>" >
 		                            <option value=""><?php echo get_phrase('select_class_first');?></option>
 			                        
 			                    </select>
@@ -81,7 +81,7 @@
 						<label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('roll');?></label>
                         
 						<div class="col-sm-5">
-							<input type="text" class="form-control" name="roll" value="" >
+							<input type="text" class="form-control" name="roll" value="" data-validate="required" data-message-required="<?php echo get_phrase('value_required');?>" >
 						</div> 
 					</div>
 					
@@ -89,7 +89,7 @@
 						<label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('birthday');?></label>
                         
 						<div class="col-sm-5">
-							<input type="text" class="form-control datepicker" name="birthday" value="" data-start-view="2">
+							<input type="text" class="form-control datepicker" name="birthday" value="" data-start-view="2" data-validate="required" data-message-required="<?php echo get_phrase('value_required');?>" >
 						</div> 
 					</div>
 					
@@ -97,7 +97,7 @@
 						<label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('gender');?></label>
                         
 						<div class="col-sm-5">
-							<select name="sex" class="form-control selectboxit">
+							<select name="sex" class="form-control " data-validate="required" data-message-required="<?php echo get_phrase('value_required');?>" required>
                               <option value=""><?php echo get_phrase('select');?></option>
                               <option value="male"><?php echo get_phrase('male');?></option>
                               <option value="female"><?php echo get_phrase('female');?></option>
@@ -109,7 +109,7 @@
 						<label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('address');?></label>
                         
 						<div class="col-sm-5">
-							<input type="text" class="form-control" name="address" value="" >
+							<input type="text" class="form-control" name="address" value="" data-validate="required" data-message-required="<?php echo get_phrase('value_required');?>" >
 						</div> 
 					</div>
 					
@@ -117,7 +117,7 @@
 						<label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('phone');?></label>
                         
 						<div class="col-sm-5">
-							<input type="text" class="form-control" name="phone" value="" >
+							<input type="text" class="form-control" name="phone" value="">
 						</div> 
 					</div>
                     
@@ -132,6 +132,7 @@
                     
                     <div class="form-group">
 						<div class="col-sm-offset-3 col-sm-5">
+							<input type="hidden" name="status" value="waiting">
 							<button type="submit" class="btn btn-info"><?php echo get_phrase('add_student');?></button>
 						</div>
 					</div>
@@ -140,7 +141,6 @@
         </div>
     </div>
 </div>
-
 <script type="text/javascript">
 
 	function get_class_sections(class_id) {

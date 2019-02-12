@@ -14,7 +14,7 @@
             </div>
 			<div class="panel-body">
 				
-                <?php echo form_open(base_url() . 'index.php?admin/librarian/edit/' . $row['librarian_id'] , array('class' => 'form-horizontal form-groups-bordered validate', 'enctype' => 'multipart/form-data'));?>
+                <?php echo form_open(base_url() . 'index.php?admin/borrowers/edit/' . $row['borrower_id'] , array('class' => 'form-horizontal form-groups-bordered validate', 'enctype' => 'multipart/form-data'));?>
 					<div class="form-group">
 						<label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('Student');?></label>
                         
@@ -55,10 +55,31 @@
 						</div> 
                     </div>
                     <div class="form-group">
-						<label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('Date');?></label>
+						<label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('borrow_date');?></label>
                         
 						<div class="col-sm-5">
-							<input type="text" class="form-control datepicker" name="date" value="" data-start-view="2">
+							<input type="text" class="form-control datepicker" name="date_borrowed" value="<?php echo $row["date_borrowed"] ?>" data-start-view="2">
+						</div> 
+					</div>
+					<div class="form-group">
+						<label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('return_date');?></label>
+                        
+						<div class="col-sm-5">
+							<input type="text" class="form-control datepicker" name="date_returned" value="<?php echo $row["date_returned"] ?>" data-start-view="2">
+						</div> 
+					</div>
+					<div class="form-group">
+						<label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('Status');?></label>
+                        
+						<div class="col-sm-5">
+							<select name="status" class="form-control select" data-validate="required" data-message-required="<?php echo get_phrase('value_required'); ?>">	
+								<option value="borrowed" <?php 	if($row["status"] == 'borrowed') echo "selected"; ?>>
+									<?php echo get_phrase('borrowed') ?>
+								</option>
+								<option value="returned" <?php 	if($row["status"] == 'returned') echo "selected"; ?>>
+									<?php echo get_phrase('returned') ?>
+								</option>
+							</select>
 						</div> 
 					</div>
                     <div class="form-group">
