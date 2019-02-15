@@ -241,7 +241,21 @@ class Admin extends CI_Controller
         if ($this->session->userdata('admin_login') != 1)
             redirect('login', 'refresh');
         if ($param1 == 'create') {
-            $data['name']                   = $this->input->post('name');
+            
+                $id = $this->db->query("
+                SELECT AUTO_INCREMENT AS ID 
+                FROM  INFORMATION_SCHEMA.TABLES   
+                WHERE TABLE_SCHEMA = 'school_5'
+                AND TABLE_NAME = 'parent'
+                ")->row()->ID;
+
+                $id = str_pad($id,4,"0",STR_PAD_LEFT);
+                $parent_id = "P-".date("Y").$id;
+
+            $data['parent_id']              = $parent_id;
+            $data['fname']                  = $this->input->post('fname');
+            $data['mname']                  = $this->input->post('mname');
+            $data['fname']                  = $this->input->post('lname');
             $data['email']                  = $this->input->post('email');
             /*$data['password']             = $this->input->post('password');*/
             $data['phone']                  = $this->input->post('phone');
@@ -252,33 +266,30 @@ class Admin extends CI_Controller
             $this->email_model->account_opening_email('parent', $data['email']); //SEND EMAIL ACCOUNT OPENING EMAIL
             redirect(base_url() . 'index.php?admin/student_add/', 'refresh');
         }
-        if ($param1 == 'edit') {
-            $data['name']                   = $this->input->post('name');
-            $data['email']                  = $this->input->post('email');
-            $data['phone']                  = $this->input->post('phone');
-            $data['address']                = $this->input->post('address');
-            $data['profession']             = $this->input->post('profession');
-            $this->db->where('parent_id' , $param2);
-            $this->db->update('parent' , $data);
-            $this->session->set_flashdata('flash_message' , get_phrase('data_updated'));
-            redirect(base_url() . 'index.php?admin/parent/', 'refresh');
-        }
-        if ($param1 == 'delete') {
-            $this->db->where('parent_id' , $param2);
-            $this->db->delete('parent');
-            $this->session->set_flashdata('flash_message' , get_phrase('data_deleted'));
-            redirect(base_url() . 'index.php?admin/parent/', 'refresh');
-        }
-        $page_data['page_title']    = get_phrase('all_parents');
+        /*$page_data['page_title']    = get_phrase('all_parents');
         $page_data['page_name']  = 'parent';
-        $this->load->view('backend/index', $page_data);
+        $this->load->view('backend/index', $page_data);*/
     }
     function parent($param1 = '', $param2 = '', $param3 = '')
     {
         if ($this->session->userdata('admin_login') != 1)
             redirect('login', 'refresh');
         if ($param1 == 'create') {
-            $data['name']        			= $this->input->post('name');
+
+                $id = $this->db->query("
+                SELECT AUTO_INCREMENT AS ID 
+                FROM  INFORMATION_SCHEMA.TABLES   
+                WHERE TABLE_SCHEMA = 'school_5'
+                AND TABLE_NAME = 'parent'
+                ")->row()->ID;
+
+                $id = str_pad($id,4,"0",STR_PAD_LEFT);
+                $parent_id = "P-".date("Y").$id;
+
+            $data['parent_id']              = $parent_id;
+            $data['fname']        			= $this->input->post('fname');
+            $data['mname']                  = $this->input->post('mname');
+            $data['fname']                  = $this->input->post('lname');
             $data['email']       			= $this->input->post('email');
             /*$data['password']    			= $this->input->post('password');*/
             $data['phone']       			= $this->input->post('phone');
@@ -318,7 +329,20 @@ class Admin extends CI_Controller
         if ($this->session->userdata('admin_login') != 1)
             redirect(base_url(), 'refresh');
         if ($param1 == 'create') {
-            $data['name']        = $this->input->post('name');
+           $id = $this->db->query("
+                SELECT AUTO_INCREMENT AS ID 
+                FROM  INFORMATION_SCHEMA.TABLES   
+                WHERE TABLE_SCHEMA = 'school_5'
+                AND TABLE_NAME = 'teacher'
+                ")->row()->ID;
+
+                $id = str_pad($id,4,"0",STR_PAD_LEFT);
+                $teacher_id = "T-".date("Y").$id;
+
+            $data['teacher_id']              = $teacher_id;
+            $data['fname']                  = $this->input->post('fname');
+            $data['mname']                  = $this->input->post('mname');
+            $data['fname']                  = $this->input->post('lname');
             $data['birthday']    = $this->input->post('birthday');
             $data['sex']         = $this->input->post('sex');
             $data['address']     = $this->input->post('address');
@@ -489,6 +513,14 @@ class Admin extends CI_Controller
             $this->db->delete('section');
             $this->session->set_flashdata('flash_message' , get_phrase('data_deleted'));
             redirect(base_url() . 'index.php?admin/section' , 'refresh');
+        }
+    }
+
+    function get_parents()
+    {
+        $sections = $this->db->get('parent')->result_array();
+        foreach ($sections as $row) {
+            echo '<option value="' . $row['parent_id'] . '">' . $row['fname'] . '</option>';
         }
     }
 

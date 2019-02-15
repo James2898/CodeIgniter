@@ -12,19 +12,42 @@
                 <?php echo form_open(base_url() . 'index.php?admin/student/create/' , array('class' => 'form-horizontal form-groups-bordered validate', 'enctype' => 'multipart/form-data'));?>
 	
 					<div class="form-group">
-						<label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('name');?></label>
+						<label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('first_name');?></label>
                         
 						<div class="col-sm-5">
-							<input type="text" class="form-control" name="name" data-validate="required" data-message-required="<?php echo get_phrase('value_required');?>" value="" autofocus>
+							<input type="text" class="form-control" name="fname" data-validate="required" data-message-required="<?php echo get_phrase('value_required');?>" value="">
 						</div>
 					</div>
 
 					<div class="form-group">
+						<label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('middle_name');?></label>
+                        
+						<div class="col-sm-5">
+							<input type="text" class="form-control" name="mname" data-validate="required" data-message-required="<?php echo get_phrase('value_required');?>" value="" >
+						</div>
+					</div>
+
+
+					<div class="form-group">
+						<label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('last_name');?></label>
+                        
+						<div class="col-sm-5">
+							<input type="text" class="form-control" name="lname" data-validate="required" data-message-required="<?php echo get_phrase('value_required');?>" value="" >
+						</div>
+					</div>
+
+					<div class="form-group" id="parent_div">
 
 						<label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('parent');?></label>
                         
-						<div class="col-sm-5">
-							<select name="parent_id"  class="form-control select2" data-validate="required" data-message-required="<?php echo get_phrase('value_required');?>" >
+						<div class="col-sm-5" >
+							<select 
+								name="parent_id"  
+								class="form-control select2" 
+								data-validate="required" 
+								data-message-required="<?php echo get_phrase('value_required');?>" 
+								id="parent_selector_holder"
+							>
                               <option value=""><?php echo get_phrase('select');?></option>
                               <?php 
 								$parents = $this->db->get('parent')->result_array();	
@@ -38,7 +61,7 @@
 							  ?>
                           </select>
 						</div> 
-						 <a href="javascript:;" onclick="showAjaxModal('<?php echo base_url();?>index.php?modal/popup/modal_parent_add/');" 
+						 <a href="javascript:;" onclick="showAjaxModal('<?php echo base_url();?>index.php?modal/popup/modal_parent_add_student_reg/');" 
 		            	class="btn btn-success ">
 		                	<i class="entypo-plus-circled"></i>
 		            		<?php echo get_phrase('Add_New_Parent');?>
@@ -49,9 +72,14 @@
 						<label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('class');?></label>
                         
 						<div class="col-sm-5">
-							<select name="class_id" class="form-control" data-validate="required" id="class_id" 
+							<select 
+								name="class_id" 
+								class="form-control select2" 
+								data-validate="required" 
 								data-message-required="<?php echo get_phrase('value_required');?>"
-									onchange="return get_class_sections(this.value)" >
+								id="class_id" 
+								onchange="return get_class_sections(this.value)"
+							>
                               <option value=""><?php echo get_phrase('select');?></option>
                               <?php 
 								$classes = $this->db->get('class')->result_array();
@@ -154,5 +182,4 @@
         });
 
     }
-
 </script>

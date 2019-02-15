@@ -9,13 +9,31 @@
             </div>
 			<div class="panel-body">
 				
-                <?php echo form_open(base_url() . 'index.php?admin/parent/create/' , array('class' => 'form-horizontal form-groups-bordered validate', 'enctype' => 'multipart/form-data'));?>
+                <?php echo form_open(base_url() . 'index.php?admin/parent_student_reg/create/' , array('class' => 'form-horizontal form-groups-bordered validate', 'enctype' => 'multipart/form-data'));?>
                     
 					<div class="form-group">
-						<label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('name');?></label>
+						<label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('first_name');?></label>
                         
 						<div class="col-sm-5">
-							<input type="text" class="form-control" name="name" data-validate="required" data-message-required="<?php echo get_phrase('value_required');?>"  autofocus
+							<input type="text" class="form-control" name="fname" data-validate="required" data-message-required="<?php echo get_phrase('value_required');?>"  autofocus
+                            	value="">
+						</div>
+					</div>
+                    
+                    <div class="form-group">
+						<label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('middle_name');?></label>
+                        
+						<div class="col-sm-5">
+							<input type="text" class="form-control" name="mname" data-validate="required" data-message-required="<?php echo get_phrase('value_required');?>"  autofocus
+                            	value="">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('last_name');?></label>
+                        
+						<div class="col-sm-5">
+							<input type="text" class="form-control" name="lname" data-validate="required" data-message-required="<?php echo get_phrase('value_required');?>"  autofocus
                             	value="">
 						</div>
 					</div>
@@ -55,7 +73,7 @@
                     
                     <div class="form-group">
 						<div class="col-sm-offset-3 col-sm-5">
-							<button type="submit" class="btn btn-default"><?php echo get_phrase('add_parent');?></button>
+							<button onsubmit="get_parent()" type="submit" class="btn btn-default"><?php echo get_phrase('11add_parent');?></button>
 						</div>
 					</div>
                 <?php echo form_close();?>
@@ -63,3 +81,19 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+
+	function get_class_sections(class_id) {
+
+    	$.ajax({
+            url: '<?php echo base_url();?>index.php?admin/get_class_section/' + class_id ,
+            success: function(response)
+            {
+                jQuery('#section_selector_holder').html(response);
+            }
+        });
+
+    }
+
+</script>

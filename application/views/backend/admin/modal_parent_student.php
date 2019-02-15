@@ -17,7 +17,7 @@
                         <tr>
                             <td><?php echo $count++;?></td>
                             <td><?php echo $row['student_id'];?></td>
-                            <td><?php echo $row['name'];?></td>
+                            <td><?php echo $row['fname']." ".$row['mname']." ".$row['lname'];?></td>
                             <td><?php echo $row['class_id'];?></td>
                             <td>
                                 

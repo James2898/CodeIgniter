@@ -3,6 +3,7 @@
                <table class="table table-bordered datatable" id="table_export">
                     <thead>
                         <tr>
+                            <th><div><?php echo get_phrase('id') ?></div></th>
                             <th><div><?php echo get_phrase('name');?></div></th>
                             <th><div><?php echo get_phrase('status');?></div></th>
                             <th><div><?php echo get_phrase('options');?></div></th>
@@ -14,7 +15,8 @@
                                 foreach($student as $row):?>
                         <tr>
                            
-                            <td><?php echo $row['name'];?></td>
+                            <td><?php echo $row['student_id'] ?></td>
+                            <td><?php echo $row['fname']." ".$row['mname']." ".$row['lname'];?></td>
                             <td><?php echo $row['status'];?></td>
                             <td>
                                 

@@ -107,7 +107,7 @@
                                     <tbody>
                                         <?php
                                             $count = 1; 
-                                            $this->db->select('student.name as student_name, borrowers.date_returned, book.name as book_name, borrower_id');
+                                            $this->db->select('student.fname, student.mname, student.lname, borrowers.date_returned, book.name as book_name, borrower_id');
                                             $this->db->from('borrowers');
                                             $this->db->where('borrowers.status','returned');
                                             $this->db->join('student','student.student_id = borrowers.student_id','left');
@@ -117,7 +117,7 @@
                                             foreach($query as $row):?>
                                         <tr>
                                             <td><?php echo $count++;?></td>
-                                            <td><?php echo $row['student_name'];?></td>
+                                            <td><?php echo $row['fname']." ".$row['mname']." ".$row['lname'];?></td>
                                             <td><?php echo $row['book_name'];?></td>
                                             <td><?php echo $row['date_returned'];?></td>
                                             <td>
@@ -166,7 +166,7 @@
                                         <?php
                                             $count = 1; 
                                             
-                                            $this->db->select('student.name as student_name, borrower_frequency.borrower_frequency');
+                                            $this->db->select('student.fname, student.mname, student.lname, borrower_frequency.borrower_frequency');
                                             $this->db->from('borrower_frequency');
                                             $this->db->join('student','student.student_id = borrower_frequency.student_id','left');
                                             $this->db->order_by('borrower_frequency.borrower_frequency','DESC');
@@ -176,7 +176,7 @@
                                             foreach($query as $row):?>
                                         <tr>
                                             <td><?php echo $count++;?></td>
-                                            <td><?php echo $row['student_name'];?></td>
+                                            <td><?php echo $row['fname']." ".$row['mname']." ".$row['lname'];?></td>
                                             <td><?php echo $row['borrower_frequency'] ?></td>
                                         </tr>
                                         <?php endforeach;?>

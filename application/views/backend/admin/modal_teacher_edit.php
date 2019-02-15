@@ -19,7 +19,7 @@ foreach ( $edit_data as $row):
                             <div class="form-group">
                                 <label class="col-sm-3 control-label"><?php echo get_phrase('name');?></label>
                                 <div class="col-sm-5">
-                                    <input type="text" class="form-control" name="name" value="<?php echo $row['name'];?>"/>
+                                    <input type="text" class="form-control" name="name" value="<?php echo $row['fname']." ".$row['mname']." ".$row['lname'];?>"/>
                                 </div>
                             </div>
                             <div class="form-group">

@@ -23,7 +23,7 @@
                             foreach($parents as $row):?>
                         <tr>
                             <td><?php echo $count++;?></td>
-                            <td><?php echo $row['name'];?></td>
+                            <td><?php echo $row['fname']." ".$row['mname']." ".$row['lname'];?></td>
                             <td><?php echo $row['email'];?></td>
                             <td><?php echo $row['phone'];?></td>
                             <td><?php echo $row['profession'];?></td>
