@@ -52,10 +52,17 @@
 						</div> 
                     </div>
                     <div class="form-group">
-						<label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('Date');?></label>
+						<label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('date_of_borrow');?></label>
                         
 						<div class="col-sm-5">
-							<input type="text" class="form-control datepicker" name="date" value="" data-start-view="2">
+							<input type="text" class="form-control datepicker" name="date_borrowed" value="" data-start-view="2">
+						</div> 
+					</div>
+					<div class="form-group">
+						<label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('date_to_return');?></label>
+                        
+						<div class="col-sm-5">
+							<input type="text" class="form-control datepicker" name="date_returned" value="" data-start-view="2">
 						</div> 
 					</div>
                     <div class="form-group">
