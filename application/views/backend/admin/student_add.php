@@ -27,7 +27,7 @@
 							<select name="parent_id"  class="form-control select2" data-validate="required" data-message-required="<?php echo get_phrase('value_required');?>" >
                               <option value=""><?php echo get_phrase('select');?></option>
                               <?php 
-								$parents = $this->db->get('parent')->result_array();
+								$parents = $this->db->get('parent')->result_array();	
 								foreach($parents as $row):
 									?>
                             		<option value="<?php echo $row['parent_id'];?>">

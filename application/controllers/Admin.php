@@ -164,14 +164,29 @@ class Admin extends CI_Controller
         if ($this->session->userdata('admin_login') != 1)
             redirect('login', 'refresh');
         if ($param1 == 'create') {
-            $data['name']           = $this->input->post('name');
-            $data['birthday']       = $this->input->post('birthday');
-            $data['sex']            = $this->input->post('sex');
-            $data['address']        = $this->input->post('address');
-            $data['phone']          = $this->input->post('phone');
-            $data['email']          = $this->input->post('email');
-            $data['password']       = $this->input->post('password');
-            $data['class_id']       = $this->input->post('class_id');
+
+
+                $id = $this->db->query("
+                SELECT AUTO_INCREMENT AS ID 
+                FROM  INFORMATION_SCHEMA.TABLES   
+                WHERE TABLE_SCHEMA = 'school_5'
+                AND TABLE_NAME = 'student'
+                ")->row()->ID;
+
+                $id = str_pad($id,5,"0",STR_PAD_LEFT);
+                $student_ID = date("Y").$id;
+
+            $data['student_id']      = $student_ID;
+            $data['fname']           = $this->input->post('fname');
+            $data['mname']           = $this->input->post('mname');
+            $data['lname']           = $this->input->post('lname');
+            $data['birthday']        = $this->input->post('birthday');
+            $data['sex']             = $this->input->post('sex');
+            $data['address']         = $this->input->post('address');
+            $data['phone']           = $this->input->post('phone');
+            $data['email']           = $this->input->post('email');
+            $data['password']        = $this->input->post('password');
+            $data['class_id']        = $this->input->post('class_id');
             $data['status']       = $this->input->post('status');
             if ($this->input->post('section_id') != '') {
                 $data['section_id'] = $this->input->post('section_id');
@@ -188,7 +203,9 @@ class Admin extends CI_Controller
             redirect(base_url() . 'index.php?admin/student_add/' . $data['class_id'], 'refresh');
         }
         if ($param2 == 'do_update') {
-            $data['name']           = $this->input->post('name');
+            $data['fname']           = $this->input->post('fname');
+            $data['mname']           = $this->input->post('mname');
+            $data['lname']           = $this->input->post('lname');
             $data['birthday']       = $this->input->post('birthday');
             $data['sex']            = $this->input->post('sex');
             $data['address']        = $this->input->post('address');

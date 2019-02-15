@@ -35,27 +35,49 @@
         <div class="tab-content">
             <div class="tab-pane active" id="home">
                 
+                    <!-- //$sample = $this->db->where('TABLE_NAME','student')->result_array(); -->
+
                 <table class="table table-bordered datatable" id="table_export">
                     <thead>
                         <tr>
-                            <th width="80"><div><?php echo get_phrase('roll');?></div></th>
+                            <th width="80"><div><?php echo get_phrase('student_no');?></div></th>
                            
                             <th><div><?php echo get_phrase('name');?></div></th>
                             <th class="span3"><div><?php echo get_phrase('address');?></div></th>
-                            <th><div><?php echo get_phrase('email');?></div></th>
+                            <th><div><?php echo get_phrase('parent');?></div></th>
                             <th><div><?php echo get_phrase('options');?></div></th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php 
-                                $students   =   $this->db->get_where('student' , array('class_id'=>$class_id))->result_array();
-                                foreach($students as $row):?>
+
+                                
+                               /*$students   =   $this->db->get_where('student' , array(
+                                    'class_id'=>$class_id
+                                ))->result_array();*/
+
+                                $this->db->select('
+                                        student.student_id,student.lname as student_lname, 
+                                        student.fname as student_fname, 
+                                        student.mname as student_mname, 
+                                        student.address, 
+                                        parent.fname as parent_fname,
+                                        parent.mname as parent_mname,
+                                        parent.lname as parent_lname
+                                ');
+                                $this->db->from('student');
+                                $this->db->join('parent','parent.parent_id = student.parent_id','left');
+                                            
+                                $students = $this->db->get()->result_array();
+
+
+                                foreach($students as $row):
+                        ?>
                         <tr>
-                            <td><?php echo $row['roll'];?></td>
-                          
-                            <td><?php echo $row['name'];?></td>
+                            <td><?php echo $row['student_id'];?></td>
+                            <td><?php echo $row['student_fname']." ".$row['student_mname']." ".$row['student_lname'];?></td>
                             <td><?php echo $row['address'];?></td>
-                            <td><?php echo $row['email'];?></td>
+                            <td><?php echo $row['parent_lname']." ".$row['parent_mname']." ".$row['parent_lname'];?></td>
                             <td>
                                 
                                 <div class="btn-group">

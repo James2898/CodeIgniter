@@ -1,5 +1,5 @@
                 <a href="javascript:;" onclick="showAjaxModal('<?php echo base_url();?>index.php?modal/popup/modal_borrower_add/');" 
-                class="btn btn-primary pull-right">
+                class="btn btn-primary">
                   <i class="entypo-plus-circled"></i>
                   <?php echo get_phrase('Add New Borrower');?>
                 </a> 
@@ -33,6 +33,7 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
+                                            <th><div><?php echo get_phrase('student_id') ?></div></th>
                                             <th><div><?php echo get_phrase('name');?></div></th>
                                             <th><div><?php echo get_phrase('book');?></div></th>
                                             <th><div><?php echo get_phrase('date_borrowed');?></div></th>
@@ -42,7 +43,7 @@
                                     <tbody>
                                         <?php
                                             $count = 1; 
-                                            $this->db->select('book.book_id,student.name as student_name, borrowers.date_borrowed, book.name as book_name, borrower_id');
+                                            $this->db->select('book.book_id,student.fname, student.student_id, student.mname, student.lname, borrowers.date_borrowed, book.name as book_name, borrower_id');
                                             $this->db->from('borrowers');
                                             $this->db->where('borrowers.status','borrowed');
                                             $this->db->join('student','student.student_id = borrowers.student_id','left');
@@ -52,11 +53,11 @@
                                             foreach($query as $row):?>
                                         <tr>
                                             <td><?php echo $count++;?></td>
-                                            <td><?php echo $row['student_name'];?></td>
+                                            <td><?php echo $row['student_id'] ?></td>
+                                            <td><?php echo $row['fname']." ".$row['mname']." ".$row['lname'];?></td>
                                             <td><?php echo $row['book_name'];?></td>
                                             <td><?php echo $row['date_borrowed'];?></td>
                                             <td>
-                                                
                                                 <div class="btn-group">
                                                     <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
                                                         Action <span class="caret"></span>
@@ -79,16 +80,13 @@
                                                                     <?php echo get_phrase('delete');?>
                                                                 </a>
                                                         </li>
-                                                        <li class="divider"></li>
-                                                        <li>
-                                                            <a href="<?php echo base_url(); ?>index.php?admin/borrowers/return/<?php echo $row['borrower_id']?>/<?php echo $row['book_id'] ?>" >
-                                                                <i class="entypo-reply"></i>
-                                                                <?php echo get_phrase('return_book') ?>
-                                                            </a>
-                                                        </li>
                                                     </ul>
+                                                    
                                                 </div>
-                                                
+                                                    <a class="btn btn-default btn-sm" href="<?php echo base_url(); ?>index.php?admin/borrowers/return/<?php echo $row['borrower_id']?>/<?php echo $row['book_id'] ?>">
+                                                        <i class="entypo-reply"></i>
+                                                        <?php echo get_phrase('return') ?>
+                                                    </a>
                                             </td>
                                         </tr>
                                         <?php endforeach;?>
