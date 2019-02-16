@@ -73,7 +73,7 @@
                     
                     <div class="form-group">
 						<div class="col-sm-offset-3 col-sm-5">
-							<button onsubmit="get_parent()" type="submit" class="btn btn-default"><?php echo get_phrase('11add_parent');?></button>
+							<button onsubmit="get_parent()" type="submit" class="btn btn-default"><?php echo get_phrase('add_parent');?></button>
 						</div>
 					</div>
                 <?php echo form_close();?>
