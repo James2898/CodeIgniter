@@ -29,7 +29,7 @@
 								foreach($parents as $row):
 									?>
                             		<option value="<?php echo $row['parent_id'];?>">
-										<?php echo $row['name'];?>
+										<?php echo $row['fname']." ".$row['mname']." ".$row['lname'];?>
                                     </option>
                                 <?php
 								endforeach;

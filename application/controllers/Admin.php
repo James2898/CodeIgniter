@@ -196,7 +196,7 @@ class Admin extends CI_Controller
             $data['transport_id']   = $this->input->post('transport_id');
             $data['roll']           = $this->input->post('roll');
             $this->db->insert('student', $data);
-            $student_id = $this->db->insert_id();
+            //$student_id = $this->db->insert_id();
             move_uploaded_file($_FILES['userfile']['tmp_name'], 'uploads/student_image/' . $student_id . '.jpg');
             $this->session->set_flashdata('flash_message' , get_phrase('data_added_successfully'));
             $this->email_model->account_opening_email('student', $data['email']); //SEND EMAIL ACCOUNT OPENING EMAIL
