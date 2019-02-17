@@ -52,7 +52,7 @@ foreach ( $edit_data as $row):
 										?>
                                 		<option value="<?php echo $row3['parent_id'];?>"
                                         	<?php if($row['parent_id'] == $row3['parent_id'])echo 'selected';?>>
-													<?php echo $row['fname']." ".$row['mname']." ".$row['lname'];?>
+													<?php echo $row3['fname']." ".$row3['mname']." ".$row3['lname'];?>
                                                 </option>
 	                                <?php
 									endforeach;

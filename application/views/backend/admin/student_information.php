@@ -77,7 +77,7 @@
                             <td><?php echo $row['student_id'];?></td>
                             <td><?php echo $row['student_fname']." ".$row['student_mname']." ".$row['student_lname'];?></td>
                             <td><?php echo $row['address'];?></td>
-                            <td><?php echo $row['parent_lname']." ".$row['parent_mname']." ".$row['parent_lname'];?></td>
+                            <td><?php echo $row['parent_fname']." ".$row['parent_mname']." ".$row['parent_lname'];?></td>
                             <td>
                                 
                                 <div class="btn-group">
@@ -149,7 +149,7 @@
                                 foreach($students as $row):?>
                         <tr>
                             <td><?php echo $row['roll'];?></td>
-                            <td><?php echo $row['name'];?></td>
+                            <td><?php echo $row['student_fname']." ".$row['student_mname']." ".$row['student_lname'];?></td>
                             <td><?php echo $row['address'];?></td>
                             <td><?php echo $row['email'];?></td>
                             <td>
