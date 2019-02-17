@@ -66,8 +66,9 @@
                                         parent.lname as parent_lname
                                 ');
                                 $this->db->from('student');
+                                
                                 $this->db->join('parent','parent.parent_id = student.parent_id','left');
-                                            
+                                $this->db->where('class_id',$class_id);        
                                 $students = $this->db->get()->result_array();
 
 
