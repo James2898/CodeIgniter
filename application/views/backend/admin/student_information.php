@@ -149,7 +149,7 @@
                                 foreach($students as $row):?>
                         <tr>
                             <td><?php echo $row['roll'];?></td>
-                            <td><?php echo $row['student_fname']." ".$row['student_mname']." ".$row['student_lname'];?></td>
+                            <td><?php echo $row['fname']." ".$row['mname']." ".$row['lname'];?></td>
                             <td><?php echo $row['address'];?></td>
                             <td><?php echo $row['email'];?></td>
                             <td>
