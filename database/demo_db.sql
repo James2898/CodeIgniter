@@ -1,6 +1,6 @@
 --
 -- MySQL 5.1.53
--- Sun, 17 Feb 2019 10:55:57 +0000
+-- Sun, 17 Feb 2019 13:45:34 +0000
 --
 
 CREATE TABLE `admin` (
@@ -27,7 +27,7 @@ CREATE TABLE `book` (
    PRIMARY KEY (`book_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=8;
 
-INSERT INTO `book` (`book_id`, `name`, `description`, `author`, `class_id`, `status`, `price`, `qty`) VALUES ('7', 'Basic Math', 'Basic Math', 'Author', '', 'Available', '', '2');
+INSERT INTO `book` (`book_id`, `name`, `description`, `author`, `class_id`, `status`, `price`, `qty`) VALUES ('7', 'Basic Math', 'Basic Math', 'Author', '', 'Available', '', '0');
 
 CREATE TABLE `book_frequency` (
    `book_frequency_id` int(11) not null auto_increment,
@@ -41,13 +41,13 @@ INSERT INTO `book_frequency` (`book_frequency_id`, `book_id`, `book_frequency`) 
 
 CREATE TABLE `borrower_frequency` (
    `borrower_frequency_id` int(11) not null auto_increment,
-   `student_id` int(11),
+   `student_id` longtext,
    `borrower_frequency` int(11),
    PRIMARY KEY (`borrower_frequency_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=6;
 
-INSERT INTO `borrower_frequency` (`borrower_frequency_id`, `student_id`, `borrower_frequency`) VALUES ('4', '310', '2');
-INSERT INTO `borrower_frequency` (`borrower_frequency_id`, `student_id`, `borrower_frequency`) VALUES ('5', '201900313', '1');
+INSERT INTO `borrower_frequency` (`borrower_frequency_id`, `student_id`, `borrower_frequency`) VALUES ('4', '201900314', '2');
+INSERT INTO `borrower_frequency` (`borrower_frequency_id`, `student_id`, `borrower_frequency`) VALUES ('5', '201900310', '1');
 
 CREATE TABLE `borrowers` (
    `borrower_id` int(11) not null auto_increment,
@@ -62,7 +62,7 @@ CREATE TABLE `borrowers` (
 INSERT INTO `borrowers` (`borrower_id`, `student_id`, `book_id`, `status`, `date_borrowed`, `date_returned`) VALUES ('5', '1', '2', '', '02/21/2010', '');
 INSERT INTO `borrowers` (`borrower_id`, `student_id`, `book_id`, `status`, `date_borrowed`, `date_returned`) VALUES ('14', '201900310', '7', 'returned', '02/14/2019', '02-15-2019');
 INSERT INTO `borrowers` (`borrower_id`, `student_id`, `book_id`, `status`, `date_borrowed`, `date_returned`) VALUES ('13', '201900310', '7', 'borrowed', '02/12/2019', '02-12-2019');
-INSERT INTO `borrowers` (`borrower_id`, `student_id`, `book_id`, `status`, `date_borrowed`, `date_returned`) VALUES ('15', '201900313', '7', 'borrowed', '12/01/2008', '10/31/2018');
+INSERT INTO `borrowers` (`borrower_id`, `student_id`, `book_id`, `status`, `date_borrowed`, `date_returned`) VALUES ('15', '201900315', '7', 'borrowed', '12/01/2008', '10/31/2018');
 
 CREATE TABLE `ci_sessions` (
    `id` varchar(40) not null,
@@ -75,11 +75,21 @@ CREATE TABLE `ci_sessions` (
 
 INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES ('016dd2c9a763748f506022dc950ef6b815f2fac2', '127.0.0.1', '1550400854', '__ci_last_regenerate|i:1550400489;admin_login|s:1:\"1\";admin_id|s:1:\"1\";login_user_id|s:1:\"1\";name|s:9:\"Mr. Admin\";login_type|s:5:\"admin\";');
 INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES ('03ca92f43b8b71ee3e6cb499e98bf5913be40867', '127.0.0.1', '1550400028', '__ci_last_regenerate|i:1550399735;admin_login|s:1:\"1\";admin_id|s:1:\"1\";login_user_id|s:1:\"1\";name|s:9:\"Mr. Admin\";login_type|s:5:\"admin\";');
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES ('233f1f306d085eeb565c31ccc33029cf7d460e22', '127.0.0.1', '1550402879', '__ci_last_regenerate|i:1550402808;admin_login|s:1:\"1\";admin_id|s:1:\"1\";login_user_id|s:1:\"1\";name|s:9:\"Mr. Admin\";login_type|s:5:\"admin\";');
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES ('2b369b3c82cec318ce48a2d55e6924b60984319e', '127.0.0.1', '1550402047', '__ci_last_regenerate|i:1550402039;admin_login|s:1:\"1\";admin_id|s:1:\"1\";login_user_id|s:1:\"1\";name|s:9:\"Mr. Admin\";login_type|s:5:\"admin\";');
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES ('4d875b876f21d37e7a9638a26bf1b5b8e9e7fbb2', '127.0.0.1', '1550401167', '__ci_last_regenerate|i:1550401162;admin_login|s:1:\"1\";admin_id|s:1:\"1\";login_user_id|s:1:\"1\";name|s:9:\"Mr. Admin\";login_type|s:5:\"admin\";flash_message|s:23:\"Data Added Successfully\";__ci_vars|a:1:{s:13:\"flash_message\";s:3:\"old\";}');
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES ('5022240878bf3dfa5fc7cdf63055cd71daff259c', '127.0.0.1', '1550405617', '__ci_last_regenerate|i:1550405552;admin_login|s:1:\"1\";admin_id|s:1:\"1\";login_user_id|s:1:\"1\";name|s:9:\"Mr. Admin\";login_type|s:5:\"admin\";');
 INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES ('58b4fc783af8089360726521f8d5aa2f55485851', '127.0.0.1', '1550400365', '__ci_last_regenerate|i:1550400126;admin_login|s:1:\"1\";admin_id|s:1:\"1\";login_user_id|s:1:\"1\";name|s:9:\"Mr. Admin\";login_type|s:5:\"admin\";');
-INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES ('5dcbc1224d662527b3c94d069728122b68533465', '127.0.0.1', '1550400921', '__ci_last_regenerate|i:1550400859;admin_login|s:1:\"1\";admin_id|s:1:\"1\";login_user_id|s:1:\"1\";name|s:9:\"Mr. Admin\";login_type|s:5:\"admin\";');
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES ('5dcbc1224d662527b3c94d069728122b68533465', '127.0.0.1', '1550401153', '__ci_last_regenerate|i:1550400859;admin_login|s:1:\"1\";admin_id|s:1:\"1\";login_user_id|s:1:\"1\";name|s:9:\"Mr. Admin\";login_type|s:5:\"admin\";');
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES ('64484b5a57dbc0eb0bac78304c9640ae992b81a4', '127.0.0.1', '1550410972', '__ci_last_regenerate|i:1550410698;admin_login|s:1:\"1\";admin_id|s:1:\"1\";login_user_id|s:1:\"1\";name|s:9:\"Mr. Admin\";login_type|s:5:\"admin\";flash_message|s:12:\"Data Updated\";__ci_vars|a:1:{s:13:\"flash_message\";s:3:\"old\";}');
 INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES ('9c3f6ca3fe53afa3208417c5c363c6c4c4786df7', '127.0.0.1', '1550398218', '__ci_last_regenerate|i:1550398079;admin_login|s:1:\"1\";admin_id|s:1:\"1\";login_user_id|s:1:\"1\";name|s:9:\"Mr. Admin\";login_type|s:5:\"admin\";');
 INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES ('a1715ad9e22b5396aa27a1e0c980dfcc3e95f0a3', '127.0.0.1', '1550399716', '__ci_last_regenerate|i:1550399422;admin_login|s:1:\"1\";admin_id|s:1:\"1\";login_user_id|s:1:\"1\";name|s:9:\"Mr. Admin\";login_type|s:5:\"admin\";');
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES ('a33c1560985cb9d041553c24a89f4a18de3c42ea', '127.0.0.1', '1550411096', '__ci_last_regenerate|i:1550411002;admin_login|s:1:\"1\";admin_id|s:1:\"1\";login_user_id|s:1:\"1\";name|s:9:\"Mr. Admin\";login_type|s:5:\"admin\";flash_message|s:12:\"Data Updated\";__ci_vars|a:1:{s:13:\"flash_message\";s:3:\"old\";}');
 INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES ('a688c5f0e4f5e80503cc172c0a3ff5dada2de812', '127.0.0.1', '1550399311', '__ci_last_regenerate|i:1550399020;admin_login|s:1:\"1\";admin_id|s:1:\"1\";login_user_id|s:1:\"1\";name|s:9:\"Mr. Admin\";login_type|s:5:\"admin\";');
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES ('a9c4f9e95c15e157ea451bc12ae897340d5304ff', '127.0.0.1', '1550404068', '__ci_last_regenerate|i:1550404046;admin_login|s:1:\"1\";admin_id|s:1:\"1\";login_user_id|s:1:\"1\";name|s:9:\"Mr. Admin\";login_type|s:5:\"admin\";');
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES ('c6420cb0eff793b196746cb7fc79631c5d1cf9f7', '127.0.0.1', '1550404821', '__ci_last_regenerate|i:1550404378;admin_login|s:1:\"1\";admin_id|s:1:\"1\";login_user_id|s:1:\"1\";name|s:9:\"Mr. Admin\";login_type|s:5:\"admin\";');
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES ('d9c34782ce6c9d2966147a0653ebd11763d00bbc', '127.0.0.1', '1550405263', '__ci_last_regenerate|i:1550405057;admin_login|s:1:\"1\";admin_id|s:1:\"1\";login_user_id|s:1:\"1\";name|s:9:\"Mr. Admin\";login_type|s:5:\"admin\";');
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES ('df717185782cba36ce0084a68f410b043028d220', '127.0.0.1', '1550404022', '__ci_last_regenerate|i:1550403732;admin_login|s:1:\"1\";admin_id|s:1:\"1\";login_user_id|s:1:\"1\";name|s:9:\"Mr. Admin\";login_type|s:5:\"admin\";flash_message|s:12:\"Data Updated\";__ci_vars|a:1:{s:13:\"flash_message\";s:3:\"old\";}');
 INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES ('f194196f058b9e653910bbd6475c1341b5ded306', '127.0.0.1', '1550397926', '__ci_last_regenerate|i:1550397670;admin_login|s:1:\"1\";admin_id|s:1:\"1\";login_user_id|s:1:\"1\";name|s:9:\"Mr. Admin\";login_type|s:5:\"admin\";');
 
 CREATE TABLE `class` (
@@ -88,7 +98,7 @@ CREATE TABLE `class` (
    `name_numeric` longtext,
    `teacher_id` longtext,
    PRIMARY KEY (`class_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=9;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=10;
 
 INSERT INTO `class` (`class_id`, `name`, `name_numeric`, `teacher_id`) VALUES ('5', 'Developmental Kinder', '', 'T-20190004');
 INSERT INTO `class` (`class_id`, `name`, `name_numeric`, `teacher_id`) VALUES ('6', 'Kinder 1', '', 'T-20190003');
@@ -146,7 +156,7 @@ CREATE TABLE `language` (
    `japanese` longtext not null,
    `korean` longtext not null,
    PRIMARY KEY (`phrase_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1644;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1679;
 
 INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `bengali`, `spanish`, `arabic`, `dutch`, `russian`, `chinese`, `turkish`, `portuguese`, `hungarian`, `french`, `greek`, `german`, `italian`, `thai`, `urdu`, `hindi`, `latin`, `indonesian`, `japanese`, `korean`) VALUES ('1455', 'login', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
 INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `bengali`, `spanish`, `arabic`, `dutch`, `russian`, `chinese`, `turkish`, `portuguese`, `hungarian`, `french`, `greek`, `german`, `italian`, `thai`, `urdu`, `hindi`, `latin`, `indonesian`, `japanese`, `korean`) VALUES ('1456', 'admin_dashboard', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
@@ -337,14 +347,49 @@ INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `bengali`, `spanish`, 
 INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `bengali`, `spanish`, `arabic`, `dutch`, `russian`, `chinese`, `turkish`, `portuguese`, `hungarian`, `french`, `greek`, `german`, `italian`, `thai`, `urdu`, `hindi`, `latin`, `indonesian`, `japanese`, `korean`) VALUES ('1641', 'section_name', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
 INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `bengali`, `spanish`, `arabic`, `dutch`, `russian`, `chinese`, `turkish`, `portuguese`, `hungarian`, `french`, `greek`, `german`, `italian`, `thai`, `urdu`, `hindi`, `latin`, `indonesian`, `japanese`, `korean`) VALUES ('1642', 'nick_name', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
 INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `bengali`, `spanish`, `arabic`, `dutch`, `russian`, `chinese`, `turkish`, `portuguese`, `hungarian`, `french`, `greek`, `german`, `italian`, `thai`, `urdu`, `hindi`, `latin`, `indonesian`, `japanese`, `korean`) VALUES ('1643', 'edit_class', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `bengali`, `spanish`, `arabic`, `dutch`, `russian`, `chinese`, `turkish`, `portuguese`, `hungarian`, `french`, `greek`, `german`, `italian`, `thai`, `urdu`, `hindi`, `latin`, `indonesian`, `japanese`, `korean`) VALUES ('1644', 'add_section', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `bengali`, `spanish`, `arabic`, `dutch`, `russian`, `chinese`, `turkish`, `portuguese`, `hungarian`, `french`, `greek`, `german`, `italian`, `thai`, `urdu`, `hindi`, `latin`, `indonesian`, `japanese`, `korean`) VALUES ('1645', 'add_new_parent', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `bengali`, `spanish`, `arabic`, `dutch`, `russian`, `chinese`, `turkish`, `portuguese`, `hungarian`, `french`, `greek`, `german`, `italian`, `thai`, `urdu`, `hindi`, `latin`, `indonesian`, `japanese`, `korean`) VALUES ('1646', 'manage_noticeboard', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `bengali`, `spanish`, `arabic`, `dutch`, `russian`, `chinese`, `turkish`, `portuguese`, `hungarian`, `french`, `greek`, `german`, `italian`, `thai`, `urdu`, `hindi`, `latin`, `indonesian`, `japanese`, `korean`) VALUES ('1647', 'noticeboard_list', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `bengali`, `spanish`, `arabic`, `dutch`, `russian`, `chinese`, `turkish`, `portuguese`, `hungarian`, `french`, `greek`, `german`, `italian`, `thai`, `urdu`, `hindi`, `latin`, `indonesian`, `japanese`, `korean`) VALUES ('1648', 'add_noticeboard', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `bengali`, `spanish`, `arabic`, `dutch`, `russian`, `chinese`, `turkish`, `portuguese`, `hungarian`, `french`, `greek`, `german`, `italian`, `thai`, `urdu`, `hindi`, `latin`, `indonesian`, `japanese`, `korean`) VALUES ('1649', 'title', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `bengali`, `spanish`, `arabic`, `dutch`, `russian`, `chinese`, `turkish`, `portuguese`, `hungarian`, `french`, `greek`, `german`, `italian`, `thai`, `urdu`, `hindi`, `latin`, `indonesian`, `japanese`, `korean`) VALUES ('1650', 'notice', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `bengali`, `spanish`, `arabic`, `dutch`, `russian`, `chinese`, `turkish`, `portuguese`, `hungarian`, `french`, `greek`, `german`, `italian`, `thai`, `urdu`, `hindi`, `latin`, `indonesian`, `japanese`, `korean`) VALUES ('1651', 'date', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `bengali`, `spanish`, `arabic`, `dutch`, `russian`, `chinese`, `turkish`, `portuguese`, `hungarian`, `french`, `greek`, `german`, `italian`, `thai`, `urdu`, `hindi`, `latin`, `indonesian`, `japanese`, `korean`) VALUES ('1652', 'add_notice', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `bengali`, `spanish`, `arabic`, `dutch`, `russian`, `chinese`, `turkish`, `portuguese`, `hungarian`, `french`, `greek`, `german`, `italian`, `thai`, `urdu`, `hindi`, `latin`, `indonesian`, `japanese`, `korean`) VALUES ('1653', 'Student', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `bengali`, `spanish`, `arabic`, `dutch`, `russian`, `chinese`, `turkish`, `portuguese`, `hungarian`, `french`, `greek`, `german`, `italian`, `thai`, `urdu`, `hindi`, `latin`, `indonesian`, `japanese`, `korean`) VALUES ('1654', 'Book', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `bengali`, `spanish`, `arabic`, `dutch`, `russian`, `chinese`, `turkish`, `portuguese`, `hungarian`, `french`, `greek`, `german`, `italian`, `thai`, `urdu`, `hindi`, `latin`, `indonesian`, `japanese`, `korean`) VALUES ('1655', 'Status', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `bengali`, `spanish`, `arabic`, `dutch`, `russian`, `chinese`, `turkish`, `portuguese`, `hungarian`, `french`, `greek`, `german`, `italian`, `thai`, `urdu`, `hindi`, `latin`, `indonesian`, `japanese`, `korean`) VALUES ('1656', 'Student', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `bengali`, `spanish`, `arabic`, `dutch`, `russian`, `chinese`, `turkish`, `portuguese`, `hungarian`, `french`, `greek`, `german`, `italian`, `thai`, `urdu`, `hindi`, `latin`, `indonesian`, `japanese`, `korean`) VALUES ('1657', 'Book', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `bengali`, `spanish`, `arabic`, `dutch`, `russian`, `chinese`, `turkish`, `portuguese`, `hungarian`, `french`, `greek`, `german`, `italian`, `thai`, `urdu`, `hindi`, `latin`, `indonesian`, `japanese`, `korean`) VALUES ('1658', 'Status', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `bengali`, `spanish`, `arabic`, `dutch`, `russian`, `chinese`, `turkish`, `portuguese`, `hungarian`, `french`, `greek`, `german`, `italian`, `thai`, `urdu`, `hindi`, `latin`, `indonesian`, `japanese`, `korean`) VALUES ('1659', 'Student', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `bengali`, `spanish`, `arabic`, `dutch`, `russian`, `chinese`, `turkish`, `portuguese`, `hungarian`, `french`, `greek`, `german`, `italian`, `thai`, `urdu`, `hindi`, `latin`, `indonesian`, `japanese`, `korean`) VALUES ('1660', 'Book', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `bengali`, `spanish`, `arabic`, `dutch`, `russian`, `chinese`, `turkish`, `portuguese`, `hungarian`, `french`, `greek`, `german`, `italian`, `thai`, `urdu`, `hindi`, `latin`, `indonesian`, `japanese`, `korean`) VALUES ('1661', 'Status', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `bengali`, `spanish`, `arabic`, `dutch`, `russian`, `chinese`, `turkish`, `portuguese`, `hungarian`, `french`, `greek`, `german`, `italian`, `thai`, `urdu`, `hindi`, `latin`, `indonesian`, `japanese`, `korean`) VALUES ('1662', 'Student', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `bengali`, `spanish`, `arabic`, `dutch`, `russian`, `chinese`, `turkish`, `portuguese`, `hungarian`, `french`, `greek`, `german`, `italian`, `thai`, `urdu`, `hindi`, `latin`, `indonesian`, `japanese`, `korean`) VALUES ('1663', 'Book', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `bengali`, `spanish`, `arabic`, `dutch`, `russian`, `chinese`, `turkish`, `portuguese`, `hungarian`, `french`, `greek`, `german`, `italian`, `thai`, `urdu`, `hindi`, `latin`, `indonesian`, `japanese`, `korean`) VALUES ('1664', 'Status', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `bengali`, `spanish`, `arabic`, `dutch`, `russian`, `chinese`, `turkish`, `portuguese`, `hungarian`, `french`, `greek`, `german`, `italian`, `thai`, `urdu`, `hindi`, `latin`, `indonesian`, `japanese`, `korean`) VALUES ('1665', 'Student', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `bengali`, `spanish`, `arabic`, `dutch`, `russian`, `chinese`, `turkish`, `portuguese`, `hungarian`, `french`, `greek`, `german`, `italian`, `thai`, `urdu`, `hindi`, `latin`, `indonesian`, `japanese`, `korean`) VALUES ('1666', 'Book', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `bengali`, `spanish`, `arabic`, `dutch`, `russian`, `chinese`, `turkish`, `portuguese`, `hungarian`, `french`, `greek`, `german`, `italian`, `thai`, `urdu`, `hindi`, `latin`, `indonesian`, `japanese`, `korean`) VALUES ('1667', 'Status', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `bengali`, `spanish`, `arabic`, `dutch`, `russian`, `chinese`, `turkish`, `portuguese`, `hungarian`, `french`, `greek`, `german`, `italian`, `thai`, `urdu`, `hindi`, `latin`, `indonesian`, `japanese`, `korean`) VALUES ('1668', 'manage_profile', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `bengali`, `spanish`, `arabic`, `dutch`, `russian`, `chinese`, `turkish`, `portuguese`, `hungarian`, `french`, `greek`, `german`, `italian`, `thai`, `urdu`, `hindi`, `latin`, `indonesian`, `japanese`, `korean`) VALUES ('1669', 'photo', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `bengali`, `spanish`, `arabic`, `dutch`, `russian`, `chinese`, `turkish`, `portuguese`, `hungarian`, `french`, `greek`, `german`, `italian`, `thai`, `urdu`, `hindi`, `latin`, `indonesian`, `japanese`, `korean`) VALUES ('1670', 'update_profile', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `bengali`, `spanish`, `arabic`, `dutch`, `russian`, `chinese`, `turkish`, `portuguese`, `hungarian`, `french`, `greek`, `german`, `italian`, `thai`, `urdu`, `hindi`, `latin`, `indonesian`, `japanese`, `korean`) VALUES ('1671', 'current_password', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `bengali`, `spanish`, `arabic`, `dutch`, `russian`, `chinese`, `turkish`, `portuguese`, `hungarian`, `french`, `greek`, `german`, `italian`, `thai`, `urdu`, `hindi`, `latin`, `indonesian`, `japanese`, `korean`) VALUES ('1672', 'new_password', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `bengali`, `spanish`, `arabic`, `dutch`, `russian`, `chinese`, `turkish`, `portuguese`, `hungarian`, `french`, `greek`, `german`, `italian`, `thai`, `urdu`, `hindi`, `latin`, `indonesian`, `japanese`, `korean`) VALUES ('1673', 'confirm_new_password', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `bengali`, `spanish`, `arabic`, `dutch`, `russian`, `chinese`, `turkish`, `portuguese`, `hungarian`, `french`, `greek`, `german`, `italian`, `thai`, `urdu`, `hindi`, `latin`, `indonesian`, `japanese`, `korean`) VALUES ('1674', 'Librarian', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `bengali`, `spanish`, `arabic`, `dutch`, `russian`, `chinese`, `turkish`, `portuguese`, `hungarian`, `french`, `greek`, `german`, `italian`, `thai`, `urdu`, `hindi`, `latin`, `indonesian`, `japanese`, `korean`) VALUES ('1675', 'Teacher', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `bengali`, `spanish`, `arabic`, `dutch`, `russian`, `chinese`, `turkish`, `portuguese`, `hungarian`, `french`, `greek`, `german`, `italian`, `thai`, `urdu`, `hindi`, `latin`, `indonesian`, `japanese`, `korean`) VALUES ('1676', 'Teacher', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `bengali`, `spanish`, `arabic`, `dutch`, `russian`, `chinese`, `turkish`, `portuguese`, `hungarian`, `french`, `greek`, `german`, `italian`, `thai`, `urdu`, `hindi`, `latin`, `indonesian`, `japanese`, `korean`) VALUES ('1677', 'Teacher', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `bengali`, `spanish`, `arabic`, `dutch`, `russian`, `chinese`, `turkish`, `portuguese`, `hungarian`, `french`, `greek`, `german`, `italian`, `thai`, `urdu`, `hindi`, `latin`, `indonesian`, `japanese`, `korean`) VALUES ('1678', 'Librarian: Nikole Ydnar G. Bautista', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
 
 CREATE TABLE `librarian` (
    `librarian_id` int(11) not null auto_increment,
-   `teacher_id` int(11),
+   `teacher_id` longtext,
    PRIMARY KEY (`librarian_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=2;
 
-INSERT INTO `librarian` (`librarian_id`, `teacher_id`) VALUES ('1', '3');
+INSERT INTO `librarian` (`librarian_id`, `teacher_id`) VALUES ('1', 'T-20190004');
 
 CREATE TABLE `mark` (
    `mark_id` int(11) not null auto_increment,
@@ -484,7 +529,7 @@ CREATE TABLE `parent` (
    `profession` longtext,
    `authentication_key` longtext,
    PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=17;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=18;
 
 INSERT INTO `parent` (`id`, `parent_id`, `fname`, `mname`, `lname`, `name`, `email`, `password`, `phone`, `address`, `profession`, `authentication_key`) VALUES ('8', 'P-2019008', 'Caldit', 'X', 'Caldit', '', 'mawolenecaldit@yahoo.com', '', '09474527700', 'B6 L16 P-1 Narra Village Adelina Complex 3', 'Housewife', '');
 INSERT INTO `parent` (`id`, `parent_id`, `fname`, `mname`, `lname`, `name`, `email`, `password`, `phone`, `address`, `profession`, `authentication_key`) VALUES ('9', 'P-20190009', 'Weezar', '', 'Idris', 'Weezar idris', 'weezar@yahoo.com', '', '09177868887', 'Binan, Laguna', 'teacher', '');
@@ -492,6 +537,7 @@ INSERT INTO `parent` (`id`, `parent_id`, `fname`, `mname`, `lname`, `name`, `ema
 INSERT INTO `parent` (`id`, `parent_id`, `fname`, `mname`, `lname`, `name`, `email`, `password`, `phone`, `address`, `profession`, `authentication_key`) VALUES ('14', 'P-20190014', 'qwe', 'qwe', '', '', 'nhelle@gmail.com', '', 'qweq', 'qwqew', 'qweeq', '');
 INSERT INTO `parent` (`id`, `parent_id`, `fname`, `mname`, `lname`, `name`, `email`, `password`, `phone`, `address`, `profession`, `authentication_key`) VALUES ('16', 'P-20190016', 'eqwe', 'jnjnj', 'njnjn', '', 'jnjn', '', 'jn', 'jn', 'jn', '');
 INSERT INTO `parent` (`id`, `parent_id`, `fname`, `mname`, `lname`, `name`, `email`, `password`, `phone`, `address`, `profession`, `authentication_key`) VALUES ('15', 'P-20190015', 'qwe', 'qweqwe', '', '', 'qwe', '', 'qweqqwe', 'qweqwe', 'qwe', '');
+INSERT INTO `parent` (`id`, `parent_id`, `fname`, `mname`, `lname`, `name`, `email`, `password`, `phone`, `address`, `profession`, `authentication_key`) VALUES ('17', 'P-20190017', 'xccx', 'xcxcx', 'xccxcx', '', 'xcxxcx', '', 'xcxcx', 'cxxcx', 'xcxc', '');
 
 CREATE TABLE `sample` (
    `qwe` int(11) not null auto_increment,
@@ -564,17 +610,18 @@ CREATE TABLE `student` (
    `authentication_key` longtext,
    `status` text,
    PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=322;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=323;
 
-INSERT INTO `student` (`id`, `student_id`, `fname`, `mname`, `lname`, `name`, `birthday`, `sex`, `religion`, `blood_group`, `address`, `phone`, `email`, `password`, `father_name`, `mother_name`, `class_id`, `section_id`, `parent_id`, `roll`, `transport_id`, `dormitory_id`, `dormitory_room_number`, `authentication_key`, `status`) VALUES ('310', '201900310', 'Noel Luigi', 'X', 'Caldit', 'Noel Luigi S. Caldit', '10/24/2012', 'male', '', '', 'B6 L16 P-1 Narra Village Adelina Complex 3', '', '', '', '', '', '5', '0', 'P-20190009', '', '', '', '', '', 'active');
-INSERT INTO `student` (`id`, `student_id`, `fname`, `mname`, `lname`, `name`, `birthday`, `sex`, `religion`, `blood_group`, `address`, `phone`, `email`, `password`, `father_name`, `mother_name`, `class_id`, `section_id`, `parent_id`, `roll`, `transport_id`, `dormitory_id`, `dormitory_room_number`, `authentication_key`, `status`) VALUES ('314', '201900314', 'James', 'M', 'Martinez', '', '10/30/2018', 'female', '', '', '123', 'q', 'zion.martin0888@gmail.com', '', '', '', '5', '0', 'P-20190010', 'fgf', '', '', '', '', 'active');
+INSERT INTO `student` (`id`, `student_id`, `fname`, `mname`, `lname`, `name`, `birthday`, `sex`, `religion`, `blood_group`, `address`, `phone`, `email`, `password`, `father_name`, `mother_name`, `class_id`, `section_id`, `parent_id`, `roll`, `transport_id`, `dormitory_id`, `dormitory_room_number`, `authentication_key`, `status`) VALUES ('310', '201900310', 'Noel Luigi', 'X', 'Caldit', 'Noel Luigi S. Caldit', '10/24/2012', 'male', '', '', 'B6 L16 P-1 Narra Village Adelina Complex 3', '', '', '', '', '', '7', '', 'P-20190009', '', '', '', '', '', 'waiting');
+INSERT INTO `student` (`id`, `student_id`, `fname`, `mname`, `lname`, `name`, `birthday`, `sex`, `religion`, `blood_group`, `address`, `phone`, `email`, `password`, `father_name`, `mother_name`, `class_id`, `section_id`, `parent_id`, `roll`, `transport_id`, `dormitory_id`, `dormitory_room_number`, `authentication_key`, `status`) VALUES ('314', '201900314', 'James', 'M', 'Martinez', '', '10/30/2018', 'female', '', '', '123', 'q', 'zion.martin0888@gmail.com', '', '', '', '5', '0', 'P-20190010', 'fgf', '', '', '', '', 'waiting');
 INSERT INTO `student` (`id`, `student_id`, `fname`, `mname`, `lname`, `name`, `birthday`, `sex`, `religion`, `blood_group`, `address`, `phone`, `email`, `password`, `father_name`, `mother_name`, `class_id`, `section_id`, `parent_id`, `roll`, `transport_id`, `dormitory_id`, `dormitory_room_number`, `authentication_key`, `status`) VALUES ('315', '201900315', 'qw', 'eqwe', 'qwe', '', '10/30/2018', 'male', '', '', '31313', '09774720937', 'enriquelhaiza@gmail.con', '', '', '', '5', '9', 'P-20190009', 'qwe', '', '', '', '', 'waiting');
-INSERT INTO `student` (`id`, `student_id`, `fname`, `mname`, `lname`, `name`, `birthday`, `sex`, `religion`, `blood_group`, `address`, `phone`, `email`, `password`, `father_name`, `mother_name`, `class_id`, `section_id`, `parent_id`, `roll`, `transport_id`, `dormitory_id`, `dormitory_room_number`, `authentication_key`, `status`) VALUES ('316', '201900316', 'zxczczxzxzxcxzc', 'zxczxczxcxz', 'xczxczxcxzc', '', '06/10/2014', 'male', '', '', 'zxczx', 'zxczxczx', 'zxzxczx', '', '', '', '5', '9', 'P-20190009', 'zxcz', '', '', '', '', 'active');
+INSERT INTO `student` (`id`, `student_id`, `fname`, `mname`, `lname`, `name`, `birthday`, `sex`, `religion`, `blood_group`, `address`, `phone`, `email`, `password`, `father_name`, `mother_name`, `class_id`, `section_id`, `parent_id`, `roll`, `transport_id`, `dormitory_id`, `dormitory_room_number`, `authentication_key`, `status`) VALUES ('316', '201900316', 'zxczczxzxzxcxzc', 'zxczxczxcxz', 'xczxczxcxzc', '', '06/10/2014', 'male', '', '', 'zxczx', 'zxczxczx', 'zxzxczx', '', '', '', '5', '9', 'P-20190009', 'zxcz', '', '', '', '', 'waiting');
 INSERT INTO `student` (`id`, `student_id`, `fname`, `mname`, `lname`, `name`, `birthday`, `sex`, `religion`, `blood_group`, `address`, `phone`, `email`, `password`, `father_name`, `mother_name`, `class_id`, `section_id`, `parent_id`, `roll`, `transport_id`, `dormitory_id`, `dormitory_room_number`, `authentication_key`, `status`) VALUES ('317', '201900317', 'jkjkj', 'kjk', 'jkj', '', '11/20/2019', 'female', '', '', 'jkjkj', 'jkjkjkj', 'hjhjhj', '', '', '', '5', '9', 'P-20190010', 'jkjkj', '', '', '', '', 'waiting');
 INSERT INTO `student` (`id`, `student_id`, `fname`, `mname`, `lname`, `name`, `birthday`, `sex`, `religion`, `blood_group`, `address`, `phone`, `email`, `password`, `father_name`, `mother_name`, `class_id`, `section_id`, `parent_id`, `roll`, `transport_id`, `dormitory_id`, `dormitory_room_number`, `authentication_key`, `status`) VALUES ('318', '201900318', 'jkjkj', 'kjk', 'jkj', '', '11/20/2019', 'female', '', '', 'jkjkj', 'jkjkjkj', 'hjhjhj', '', '', '', '5', '9', 'P-20190010', 'jkjkj', '', '', '', '', 'waiting');
 INSERT INTO `student` (`id`, `student_id`, `fname`, `mname`, `lname`, `name`, `birthday`, `sex`, `religion`, `blood_group`, `address`, `phone`, `email`, `password`, `father_name`, `mother_name`, `class_id`, `section_id`, `parent_id`, `roll`, `transport_id`, `dormitory_id`, `dormitory_room_number`, `authentication_key`, `status`) VALUES ('319', '201900319', 'qweqweqwe', 'qweqwwq', 'qweqwe', '', '02/17/2019', 'female', '', '', 'qweqwe', '', '', '', '', '', '5', '9', 'P-20190009', 'qweqwe', '', '', '', '', 'waiting');
 INSERT INTO `student` (`id`, `student_id`, `fname`, `mname`, `lname`, `name`, `birthday`, `sex`, `religion`, `blood_group`, `address`, `phone`, `email`, `password`, `father_name`, `mother_name`, `class_id`, `section_id`, `parent_id`, `roll`, `transport_id`, `dormitory_id`, `dormitory_room_number`, `authentication_key`, `status`) VALUES ('320', '201900320', 'qweqwesdfssdfdsfsd', 'qweqsfdfsfdswewq', 'qweqewq', '', '02/17/2019', 'female', '', '', 'qweqwe', 'sdfsfds', 'sdfsdfsdfdf', '', '', '', '5', '9', 'P-20190009', 'qwewqe', '', '', '', '', 'waiting');
 INSERT INTO `student` (`id`, `student_id`, `fname`, `mname`, `lname`, `name`, `birthday`, `sex`, `religion`, `blood_group`, `address`, `phone`, `email`, `password`, `father_name`, `mother_name`, `class_id`, `section_id`, `parent_id`, `roll`, `transport_id`, `dormitory_id`, `dormitory_room_number`, `authentication_key`, `status`) VALUES ('321', '201900321', 'qweq', 'qweqwe', 'qweqwe', '', '02/17/2019', 'female', '', '', 'qwewqe', 'qweqwe', 'qweqwe', '', '', '', '5', '9', 'P-20190009', 'qweqwe', '', '', '', '', 'waiting');
+INSERT INTO `student` (`id`, `student_id`, `fname`, `mname`, `lname`, `name`, `birthday`, `sex`, `religion`, `blood_group`, `address`, `phone`, `email`, `password`, `father_name`, `mother_name`, `class_id`, `section_id`, `parent_id`, `roll`, `transport_id`, `dormitory_id`, `dormitory_room_number`, `authentication_key`, `status`) VALUES ('322', '201900322', 'hhhh', 'hhh', 'hhhh', '', '10/30/2018', 'female', '', '', 'hhh', 'hh', 'hh', '', '', '', '5', '9', 'P-20190009', 'hh', '', '', '', '', 'waiting');
 
 CREATE TABLE `teacher` (
    `id` int(11) not null auto_increment,
@@ -595,7 +642,7 @@ CREATE TABLE `teacher` (
    PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=8;
 
-INSERT INTO `teacher` (`id`, `teacher_id`, `fname`, `mname`, `lname`, `name`, `birthday`, `sex`, `religion`, `blood_group`, `address`, `phone`, `email`, `password`, `authentication_key`) VALUES ('3', 'T-20190003', 'Butardo', 'G', 'Butardo', 'Ma. Theresa  Butardo', '06/22/1974', 'male', '', '', 'B6 L16 P-1 Narra Village Adelina Complex 3', '09474527700', 'thessbutardo@gmail.com', '', '');
+INSERT INTO `teacher` (`id`, `teacher_id`, `fname`, `mname`, `lname`, `name`, `birthday`, `sex`, `religion`, `blood_group`, `address`, `phone`, `email`, `password`, `authentication_key`) VALUES ('3', 'T-20190003', 'Butardo', 'q', 'Butardo', 'Ma. Theresa  Butardo', '06/22/1974', 'male', '', '', 'B6 L16 P-1 Narra Village Adelina Complex 3', '09474527700', 'thessbutardo@gmail.com', '', '');
 INSERT INTO `teacher` (`id`, `teacher_id`, `fname`, `mname`, `lname`, `name`, `birthday`, `sex`, `religion`, `blood_group`, `address`, `phone`, `email`, `password`, `authentication_key`) VALUES ('4', 'T-20190004', 'Nikole Ydnar ', 'G.', 'Bautista', 'Nikole Ydnar G. Bautista', '07/17/1990', 'female', '', '', 'B5 L2 P-1 Lauan Village Adelina Complex III', '09565605021', 'nygbautista1017@yahoo.com', '', '');
 INSERT INTO `teacher` (`id`, `teacher_id`, `fname`, `mname`, `lname`, `name`, `birthday`, `sex`, `religion`, `blood_group`, `address`, `phone`, `email`, `password`, `authentication_key`) VALUES ('5', 'T-20190005', 'Alejandria ', 'A.', 'Aquino', 'Alejandria A. Aquino', '11/26/1980', 'female', '', '', 'B6 L13 P-3 Adelina Complex III', '09474527700', 'alejandria20aquino@yahoo.com', '', '');
 INSERT INTO `teacher` (`id`, `teacher_id`, `fname`, `mname`, `lname`, `name`, `birthday`, `sex`, `religion`, `blood_group`, `address`, `phone`, `email`, `password`, `authentication_key`) VALUES ('6', 'T-20190006', 'eqeq', 'qweqwe', '', '', '10/29/2018', 'male', '', '', 'qweqwe', 'qweqwe', 'qweqew', '', '');

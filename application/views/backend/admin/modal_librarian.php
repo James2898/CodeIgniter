@@ -27,7 +27,7 @@
 										?>
                                 		<option value="<?php echo $row3['teacher_id'];?>"
                                         	<?php if($row['teacher_id'] == $row3['teacher_id'])echo 'selected';?>>
-													<?php echo $row3['name'];?>
+													<?php echo $row3['fname']." ".$row3['mname']." ".$row3['lname'];?>
                                                 </option>
 	                                <?php
 									endforeach;
