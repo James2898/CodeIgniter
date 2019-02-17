@@ -1,6 +1,6 @@
 --
 -- MySQL 5.1.53
--- Sun, 17 Feb 2019 06:08:20 +0000
+-- Sun, 17 Feb 2019 06:24:34 +0000
 --
 
 CREATE TABLE `admin` (
@@ -83,6 +83,8 @@ INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES ('305
 INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES ('359efdeb35185814b1864840f46cbab8e43c83fb', '127.0.0.1', '1550284223', '__ci_last_regenerate|i:1550283411;admin_login|s:1:\"1\";admin_id|s:1:\"1\";login_user_id|s:1:\"1\";name|s:9:\"Mr. Admin\";login_type|s:5:\"admin\";');
 INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES ('3754dc37f7ba4b12e286d0d18ed644f10e4ab312', '127.0.0.1', '1550251288', '__ci_last_regenerate|i:1550250998;admin_login|s:1:\"1\";admin_id|s:1:\"1\";login_user_id|s:1:\"1\";name|s:9:\"Mr. Admin\";login_type|s:5:\"admin\";flash_message|s:23:\"Data Added Successfully\";__ci_vars|a:1:{s:13:\"flash_message\";s:3:\"old\";}');
 INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES ('438e38e55f5131612bb37627bb30803d81028864', '127.0.0.1', '1550250352', '__ci_last_regenerate|i:1550249989;admin_login|s:1:\"1\";admin_id|s:1:\"1\";login_user_id|s:1:\"1\";name|s:9:\"Mr. Admin\";login_type|s:5:\"admin\";');
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES ('474a2b482ffe4ba1ffa6c39f82884bdb496101f4', '127.0.0.1', '1550384617', '__ci_last_regenerate|i:1550384334;admin_login|s:1:\"1\";admin_id|s:1:\"1\";login_user_id|s:1:\"1\";name|s:9:\"Mr. Admin\";login_type|s:5:\"admin\";');
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES ('47e15becaf3f1d93894d205b431be2c9813baf52', '127.0.0.1', '1550383912', '__ci_last_regenerate|i:1550383882;admin_login|s:1:\"1\";admin_id|s:1:\"1\";login_user_id|s:1:\"1\";name|s:9:\"Mr. Admin\";login_type|s:5:\"admin\";');
 INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES ('4dd0c39ab05662bf9b808b0ffd8d7d3c7cf0b2a0', '127.0.0.1', '1550383630', '__ci_last_regenerate|i:1550383580;admin_login|s:1:\"1\";admin_id|s:1:\"1\";login_user_id|s:1:\"1\";name|s:9:\"Mr. Admin\";login_type|s:5:\"admin\";');
 INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES ('529098dc786b2319a19cdd5a3465cb59c2465d9b', '127.0.0.1', '1550251665', '__ci_last_regenerate|i:1550251364;admin_login|s:1:\"1\";admin_id|s:1:\"1\";login_user_id|s:1:\"1\";name|s:9:\"Mr. Admin\";login_type|s:5:\"admin\";');
 INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES ('59f606b1c7f2d6dead05afa0a8a04a38085e7e45', '127.0.0.1', '1550249645', '__ci_last_regenerate|i:1550249526;admin_login|s:1:\"1\";admin_id|s:1:\"1\";login_user_id|s:1:\"1\";name|s:9:\"Mr. Admin\";login_type|s:5:\"admin\";');
@@ -166,7 +168,7 @@ CREATE TABLE `language` (
    `japanese` longtext not null,
    `korean` longtext not null,
    PRIMARY KEY (`phrase_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1631;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1633;
 
 INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `bengali`, `spanish`, `arabic`, `dutch`, `russian`, `chinese`, `turkish`, `portuguese`, `hungarian`, `french`, `greek`, `german`, `italian`, `thai`, `urdu`, `hindi`, `latin`, `indonesian`, `japanese`, `korean`) VALUES ('1455', 'login', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
 INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `bengali`, `spanish`, `arabic`, `dutch`, `russian`, `chinese`, `turkish`, `portuguese`, `hungarian`, `french`, `greek`, `german`, `italian`, `thai`, `urdu`, `hindi`, `latin`, `indonesian`, `japanese`, `korean`) VALUES ('1456', 'admin_dashboard', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
@@ -344,6 +346,8 @@ INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `bengali`, `spanish`, 
 INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `bengali`, `spanish`, `arabic`, `dutch`, `russian`, `chinese`, `turkish`, `portuguese`, `hungarian`, `french`, `greek`, `german`, `italian`, `thai`, `urdu`, `hindi`, `latin`, `indonesian`, `japanese`, `korean`) VALUES ('1628', 'add_new_parent', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
 INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `bengali`, `spanish`, `arabic`, `dutch`, `russian`, `chinese`, `turkish`, `portuguese`, `hungarian`, `french`, `greek`, `german`, `italian`, `thai`, `urdu`, `hindi`, `latin`, `indonesian`, `japanese`, `korean`) VALUES ('1629', 'add_new_parent', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
 INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `bengali`, `spanish`, `arabic`, `dutch`, `russian`, `chinese`, `turkish`, `portuguese`, `hungarian`, `french`, `greek`, `german`, `italian`, `thai`, `urdu`, `hindi`, `latin`, `indonesian`, `japanese`, `korean`) VALUES ('1630', '#', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `bengali`, `spanish`, `arabic`, `dutch`, `russian`, `chinese`, `turkish`, `portuguese`, `hungarian`, `french`, `greek`, `german`, `italian`, `thai`, `urdu`, `hindi`, `latin`, `indonesian`, `japanese`, `korean`) VALUES ('1631', 'add_new_parent', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `bengali`, `spanish`, `arabic`, `dutch`, `russian`, `chinese`, `turkish`, `portuguese`, `hungarian`, `french`, `greek`, `german`, `italian`, `thai`, `urdu`, `hindi`, `latin`, `indonesian`, `japanese`, `korean`) VALUES ('1632', 'add_new_parent', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
 
 CREATE TABLE `librarian` (
    `librarian_id` int(11) not null auto_increment,
@@ -491,12 +495,13 @@ CREATE TABLE `parent` (
    `profession` longtext,
    `authentication_key` longtext,
    PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=15;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=16;
 
 INSERT INTO `parent` (`id`, `parent_id`, `fname`, `mname`, `lname`, `name`, `email`, `password`, `phone`, `address`, `profession`, `authentication_key`) VALUES ('8', 'P-2019008', 'Caldit', 'X', 'Caldit', '', 'mawolenecaldit@yahoo.com', '', '09474527700', 'B6 L16 P-1 Narra Village Adelina Complex 3', 'Housewife', '');
 INSERT INTO `parent` (`id`, `parent_id`, `fname`, `mname`, `lname`, `name`, `email`, `password`, `phone`, `address`, `profession`, `authentication_key`) VALUES ('9', 'P-20190009', 'Weezar', '', 'Idris', 'Weezar idris', 'weezar@yahoo.com', '', '09177868887', 'Binan, Laguna', 'teacher', '');
 INSERT INTO `parent` (`id`, `parent_id`, `fname`, `mname`, `lname`, `name`, `email`, `password`, `phone`, `address`, `profession`, `authentication_key`) VALUES ('10', 'P-20190010', 'James', '', 'Martinez', 'james sige', 'sige@yahooc.on', '', '8887556', 'Binan, Laguna', 'None', '');
 INSERT INTO `parent` (`id`, `parent_id`, `fname`, `mname`, `lname`, `name`, `email`, `password`, `phone`, `address`, `profession`, `authentication_key`) VALUES ('14', 'P-20190014', 'qwe', 'qwe', '', '', 'nhelle@gmail.com', '', 'qweq', 'qwqew', 'qweeq', '');
+INSERT INTO `parent` (`id`, `parent_id`, `fname`, `mname`, `lname`, `name`, `email`, `password`, `phone`, `address`, `profession`, `authentication_key`) VALUES ('15', 'P-20190015', 'qwe', 'qweqwe', '', '', 'qwe', '', 'qweqqwe', 'qweqwe', 'qwe', '');
 
 CREATE TABLE `sample` (
    `qwe` int(11) not null auto_increment,
@@ -569,10 +574,12 @@ CREATE TABLE `student` (
    `authentication_key` longtext,
    `status` text,
    PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=315;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=317;
 
 INSERT INTO `student` (`id`, `student_id`, `fname`, `mname`, `lname`, `name`, `birthday`, `sex`, `religion`, `blood_group`, `address`, `phone`, `email`, `password`, `father_name`, `mother_name`, `class_id`, `section_id`, `parent_id`, `roll`, `transport_id`, `dormitory_id`, `dormitory_room_number`, `authentication_key`, `status`) VALUES ('310', '201900310', 'Noel Luigi', 'X', 'Caldit', 'Noel Luigi S. Caldit', '10/24/2012', 'male', '', '', 'B6 L16 P-1 Narra Village Adelina Complex 3', '', '', '', '', '', '5', '0', 'P-20190009', '', '', '', '', '', 'active');
 INSERT INTO `student` (`id`, `student_id`, `fname`, `mname`, `lname`, `name`, `birthday`, `sex`, `religion`, `blood_group`, `address`, `phone`, `email`, `password`, `father_name`, `mother_name`, `class_id`, `section_id`, `parent_id`, `roll`, `transport_id`, `dormitory_id`, `dormitory_room_number`, `authentication_key`, `status`) VALUES ('314', '201900314', 'James', 'M', 'Martinez', '', '10/30/2018', 'female', '', '', '123', 'q', 'zion.martin0888@gmail.com', '', '', '', '5', '0', 'P-20190010', 'fgf', '', '', '', '', 'active');
+INSERT INTO `student` (`id`, `student_id`, `fname`, `mname`, `lname`, `name`, `birthday`, `sex`, `religion`, `blood_group`, `address`, `phone`, `email`, `password`, `father_name`, `mother_name`, `class_id`, `section_id`, `parent_id`, `roll`, `transport_id`, `dormitory_id`, `dormitory_room_number`, `authentication_key`, `status`) VALUES ('315', '201900315', 'qw', 'eqwe', 'qwe', '', '10/30/2018', 'male', '', '', '31313', '09774720937', 'enriquelhaiza@gmail.con', '', '', '', '5', '9', 'P-20190009', 'qwe', '', '', '', '', 'waiting');
+INSERT INTO `student` (`id`, `student_id`, `fname`, `mname`, `lname`, `name`, `birthday`, `sex`, `religion`, `blood_group`, `address`, `phone`, `email`, `password`, `father_name`, `mother_name`, `class_id`, `section_id`, `parent_id`, `roll`, `transport_id`, `dormitory_id`, `dormitory_room_number`, `authentication_key`, `status`) VALUES ('316', '201900316', 'zxczczxzxzxcxzc', 'zxczxczxcxz', 'xczxczxcxzc', '', '06/10/2014', 'male', '', '', 'zxczx', 'zxczxczx', 'zxzxczx', '', '', '', '5', '9', 'P-20190009', 'zxcz', '', '', '', '', 'active');
 
 CREATE TABLE `teacher` (
    `id` int(11) not null auto_increment,
