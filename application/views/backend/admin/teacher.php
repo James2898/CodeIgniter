@@ -8,6 +8,7 @@
                <table class="table table-bordered datatable" id="table_export">
                     <thead>
                         <tr>
+                            <th><div><?php echo get_phrase('#') ?></div></th>
                             <th><div><?php echo get_phrase('teacher_id'); ?></div></th>
                             <th><div><?php echo get_phrase('name');?></div></th>
                             <th><div><?php echo get_phrase('email');?></div></th>
@@ -16,9 +17,11 @@
                     </thead>
                     <tbody>
                         <?php 
+                                $count  = 1;
                                 $teachers	=	$this->db->get('teacher' )->result_array();
                                 foreach($teachers as $row):?>
                         <tr>
+                            <td><?php  echo $count++; ?></td>
                             <td><?php echo $row['teacher_id'] ?></td>
                             <td><?php echo $row['fname']." ".$row['mname']." ".$row['lname'];?></td>
                             <td><?php echo $row['email'];?></td>
