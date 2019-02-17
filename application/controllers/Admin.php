@@ -255,7 +255,7 @@ class Admin extends CI_Controller
             $data['parent_id']              = $parent_id;
             $data['fname']                  = $this->input->post('fname');
             $data['mname']                  = $this->input->post('mname');
-            $data['fname']                  = $this->input->post('lname');
+            $data['lname']                  = $this->input->post('lname');
             $data['email']                  = $this->input->post('email');
             /*$data['password']             = $this->input->post('password');*/
             $data['phone']                  = $this->input->post('phone');
