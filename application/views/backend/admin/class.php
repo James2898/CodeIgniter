@@ -33,8 +33,17 @@
                         <tr>
                             <td><?php echo $count++;?></td>
 							<td><?php echo $row['name'];?></td>
-							
-							<td><?php echo $this->crud_model->get_type_name_by_id('teacher',$row['teacher_id']);?></td>
+							<td>
+                                <?php 
+                                    
+                                    //echo $row['teacher_id'];
+
+                                    echo $this->db->get_where('teacher' , array('teacher_id' =>$row['teacher_id']) )->row()->fname." ";
+                                    echo $this->db->get_where('teacher' , array('teacher_id' =>$row['teacher_id']) )->row()->mname." ";
+                                    echo $this->db->get_where('teacher' , array('teacher_id' =>$row['teacher_id']) )->row()->lname;
+
+                                ?>                     
+                            </td>
 							<td>
                             <div class="btn-group">
                                 <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
@@ -91,7 +100,7 @@
 										foreach($teachers as $row):
 										?>
                                             
-                                    		<option value="<?php echo $row['teacher_id'];?>"><?php echo $row['name'];?></option>
+                                    		<option value="<?php echo $row['teacher_id'];?>"><?php echo $row['fname']." ".$row['mname']." ".$row['lname'];?></option>
                                         <?php
 										endforeach;
 										?>

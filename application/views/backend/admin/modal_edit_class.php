@@ -32,7 +32,7 @@ foreach ( $edit_data as $row):
                                 ?>
                                     <option value="<?php echo $row2['teacher_id'];?>"
                                         <?php if($row['teacher_id'] == $row2['teacher_id'])echo 'selected';?>>
-                                            <?php echo $row2['name'];?>
+                                            <?php echo $row2['fname']." ".$row2['mname']." ".$row2['lname'];?>
                                                 </option>
                                 <?php
                                 endforeach;

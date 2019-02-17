@@ -52,7 +52,7 @@
 									foreach($teachers as $row):
 										?>
                                 		<option value="<?php echo $row['teacher_id'];?>">
-												<?php echo $row['name'];?>
+												<?php echo $row['fname']." ".$row['mname']." ".$row['lname'];?>
                                                 </option>
                                     <?php
 									endforeach;
