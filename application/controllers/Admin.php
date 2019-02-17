@@ -303,7 +303,7 @@ class Admin extends CI_Controller
         if ($param1 == 'edit') {
              $data['fname']                 = $this->input->post('fname');
             $data['mname']                  = $this->input->post('mname');
-            $data['fname']                  = $this->input->post('lname');
+            $data['lname']                  = $this->input->post('lname');
             $data['email']                  = $this->input->post('email');
             $data['phone']                  = $this->input->post('phone');
             $data['address']                = $this->input->post('address');
@@ -361,7 +361,7 @@ class Admin extends CI_Controller
         if ($param1 == 'do_update') {
             $data['fname']                  = $this->input->post('fname');
             $data['mname']                  = $this->input->post('mname');
-            $data['fname']                  = $this->input->post('lname');
+            $data['lname']                  = $this->input->post('lname');
             $data['birthday']    = $this->input->post('birthday');
             $data['sex']         = $this->input->post('sex');
             $data['address']     = $this->input->post('address');

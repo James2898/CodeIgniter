@@ -17,9 +17,21 @@ foreach ( $edit_data as $row):
                          
                             
                             <div class="form-group">
-                                <label class="col-sm-3 control-label"><?php echo get_phrase('name');?></label>
+                                <label class="col-sm-3 control-label"><?php echo get_phrase('first_name');?></label>
                                 <div class="col-sm-5">
-                                    <input type="text" class="form-control" name="name" value="<?php echo $row['fname']." ".$row['mname']." ".$row['lname'];?>"/>
+                                    <input type="text" class="validate[required]" name="fname" value="<?php echo $row['fname'];?>"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label"><?php echo get_phrase('middle_name');?></label>
+                                <div class="col-sm-5">
+                                    <input type="text" class="validate[required]" name="mname" value="<?php echo $row['mname'];?>"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label"><?php echo get_phrase('last_name');?></label>
+                                <div class="col-sm-5">
+                                    <input type="text" class="validate[required]" name="lname" value="<?php echo $row['lname'];?>"/>
                                 </div>
                             </div>
                             <div class="form-group">

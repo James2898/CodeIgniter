@@ -4,9 +4,21 @@
                     <?php echo form_open(base_url() . 'index.php?admin/teacher/do_update/'.$row['teacher_id'] , array('class' => 'form-horizontal form-groups-bordered validate','target'=>'_top', 'enctype' => 'multipart/form-data'));?>
                         <div class="padded">
                             <div class="form-group">
-                                <label class="col-sm-3 control-label"><?php echo get_phrase('name');?></label>
+                                <label class="col-sm-3 control-label"><?php echo get_phrase('first_name');?></label>
                                 <div class="col-sm-5">
-                                    <input type="text" class="validate[required]" name="name" value="<?php echo $row['name'];?>"/>
+                                    <input type="text" class="validate[required]" name="fname" value="<?php echo $row['fname'];?>"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label"><?php echo get_phrase('middle_name');?></label>
+                                <div class="col-sm-5">
+                                    <input type="text" class="validate[required]" name="mname" value="<?php echo $row['mname'];?>"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label"><?php echo get_phrase('last_name');?></label>
+                                <div class="col-sm-5">
+                                    <input type="text" class="validate[required]" name="lname" value="<?php echo $row['lname'];?>"/>
                                 </div>
                             </div>
                             <div class="form-group">
