@@ -20,7 +20,7 @@ foreach($student_info as $row):?>
 			<ul class="profile-info-sections">
 				<li style="padding:0px; margin:0px;">
 					<div class="profile-name">
-							<h3><?php echo $row['name'];?></h3>
+							<h3><?php echo $row['fname']." ".$row['mname']." ".$row['lname'];?></h3>
 					</div>
 				</li>
 			</ul>
@@ -98,7 +98,15 @@ foreach($student_info as $row):?>
                     <?php if($row['parent_id'] != ''):?>
                     <tr>
                         <td>Parent</td>
-                        <td><b><?php echo $this->db->get_where('parent' , array('parent_id' => $row['parent_id']))->row()->name;?></b></td>
+                        <td>
+                            <b>
+                                <?php 
+                                    echo $this->db->get_where('parent' , array('parent_id' => $row['parent_id']))->row()->fname." ";
+                                    echo $this->db->get_where('parent' , array('parent_id' => $row['parent_id']))->row()->mname." ";
+                                    echo $this->db->get_where('parent' , array('parent_id' => $row['parent_id']))->row()->lname;
+                                ?>
+                            </b>
+                        </td>
                     </tr>
                     <tr>
                         <td>Parent Phone</td>
