@@ -45,7 +45,7 @@
 						<label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('teacher');?></label>
                         
 						<div class="col-sm-5">
-							<select name="teacher_id" class="form-control selectboxit">
+							<select name="teacher_id" class="form-control selectboxit select2">
                               <option value=""><?php echo get_phrase('select');?></option>
                               <?php 
 									$teachers = $this->db->get('teacher')->result_array();
