@@ -24,7 +24,7 @@
                     		<th><div>#</div></th>
                     		<th><div><?php echo get_phrase('class_name');?></div></th>
                     		
-                    		<th><div><?php echo get_phrase('teacher');?></div></th>
+                    		<!-- <th><div><?php echo get_phrase('teacher');?></div></th> -->
                     		<th><div><?php echo get_phrase('options');?></div></th>
 						</tr>
 					</thead>
@@ -33,7 +33,7 @@
                         <tr>
                             <td><?php echo $count++;?></td>
 							<td><?php echo $row['name'];?></td>
-							<td>
+							<!-- <td>
                                 <?php 
                                     
                                     //echo $row['teacher_id'];
@@ -43,7 +43,7 @@
                                     echo $this->db->get_where('teacher' , array('teacher_id' =>$row['teacher_id']) )->row()->lname;
 
                                 ?>                     
-                            </td>
+                            </td> -->
 							<td>
                             <div class="btn-group">
                                 <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
@@ -90,27 +90,10 @@
                                 </div>
                             </div>
                           
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label"><?php echo get_phrase('teacher');?></label>
-                                <div class="col-sm-5">
-                                    <select name="teacher_id" class="form-control select2" style="width:100%;">
-                                        <option value=""><?php echo get_phrase('select');?></option>
-                                    	<?php 
-										$teachers = $this->db->get('teacher')->result_array();
-										foreach($teachers as $row):
-										?>
-                                            
-                                    		<option value="<?php echo $row['teacher_id'];?>"><?php echo $row['fname']." ".$row['mname']." ".$row['lname'];?></option>
-                                        <?php
-										endforeach;
-										?>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
+                         
                         <div class="form-group">
                               <div class="col-sm-offset-3 col-sm-5">
-                                  <button type="submit" class="btn btn-info"><?php echo get_phrase('add_class');?></button>
+                                  <button type="submit" class="btn btn-info"><?php echo get_phrase('submit');?></button>
                               </div>
 							</div>
                     </form>                

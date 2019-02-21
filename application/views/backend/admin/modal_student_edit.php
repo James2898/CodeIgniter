@@ -95,13 +95,6 @@ foreach ( $edit_data as $row):
 						</div>
 
 
-					<div class="form-group">
-						<label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('roll');?></label>
-                        
-						<div class="col-sm-5">
-							<input type="text" class="form-control" name="roll" value="<?php echo $row['roll'];?>" >
-						</div> 
-					</div>
 					
 					<div class="form-group">
 						<label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('birthday');?></label>
@@ -152,7 +145,7 @@ foreach ( $edit_data as $row):
 
                     <div class="form-group">
 						<div class="col-sm-offset-3 col-sm-5">
-							<button type="submit" class="btn btn-info"><?php echo get_phrase('edit_student');?></button>
+							<button type="submit" class="btn btn-info"><?php echo get_phrase('edit');?></button>
 						</div>
 					</div>
                 <?php echo form_close();?>

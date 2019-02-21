@@ -2,7 +2,7 @@
             <a href="javascript:;" onclick="showAjaxModal('<?php echo base_url();?>index.php?modal/popup/modal_parent_add/');" 
                 class="btn btn-primary pull-right">
                 <i class="entypo-plus-circled"></i>
-                <?php echo get_phrase('add_new_parent');?>
+                <?php echo get_phrase('add_parent');?>
                 </a> 
                 <br><br>
                <table class="table table-bordered datatable" id="table_export">

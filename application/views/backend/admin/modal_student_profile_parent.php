@@ -6,14 +6,7 @@ foreach($student_info as $row):?>
 	<button class="btn btn-primary"onclick="showAjaxModal('<?php echo base_url();?>index.php?modal/popup/modal_parent_student/<?php echo $row['parent_id'];?>');">return</button>
 	<header class="row">
 		
-		<div class="col-sm-3">
-			
-			<a href="#" class="profile-picture">
-				<img src="<?php echo $this->crud_model->get_image_url('student' , $row['student_id']);?>" 
-                	class="img-responsive img-circle" />
-			</a>
-			
-		</div>
+	
 		
 		<div class="col-sm-9">
 			
@@ -96,10 +89,7 @@ foreach($student_info as $row):?>
                     </tr>
                     <?php endif;?>
                     <?php if($row['parent_id'] != ''):?>
-                    <tr>
-                        <td>Parent</td>
-                        <td><b><?php echo $this->db->get_where('parent' , array('parent_id' => $row['parent_id']))->row()->name;?></b></td>
-                    </tr>
+                 
                     <tr>
                         <td>Parent Phone</td>
                         <td><b><?php echo $this->db->get_where('parent' , array('parent_id' => $row['parent_id']))->row()->phone;?></b></td>

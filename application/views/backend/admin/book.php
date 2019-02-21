@@ -45,9 +45,9 @@
                                             <th><div><?php echo get_phrase('name');?></div></th>
                                             <th><div><?php echo get_phrase('description');?></div></th>
                                             <th><div><?php echo get_phrase('author');?></div></th>
-                                            <th><div><?php echo get_phrase('class_id');?></div></th>
+                                            
                                             <th><div><?php echo get_phrase('status');?></div></th>
-                                            <th><div><?php echo get_phrase('price');?></div></th>
+                                       
                                             <th><div><?php echo get_phrase('qty.') ?></div></th>
                                             <th></th>
                                         </tr>
@@ -62,9 +62,9 @@
                                             <td><?php echo $row['name'];?></td>
                                             <td><?php echo $row['description'];?></td>
                                             <td><?php echo $row['author'];?></td>
-                                            <td><?php echo $row['class_id'];?></td>
+                                          
                                             <td><?php echo $row['status'];?></td>
-                                            <td><?php echo $row['price'];?></td>
+                                            
                                             <td><?php echo $row['qty']; ?></td>
                                             <td>
                                                 

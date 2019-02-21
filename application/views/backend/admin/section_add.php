@@ -63,7 +63,7 @@
                     
                     <div class="form-group">
 						<div class="col-sm-offset-3 col-sm-5">
-							<button type="submit" class="btn btn-info"><?php echo get_phrase('add_section');?></button>
+							<button type="submit" class="btn btn-info"><?php echo get_phrase('submit');?></button>
 						</div>
 					</div>
                 <?php echo form_close();?>

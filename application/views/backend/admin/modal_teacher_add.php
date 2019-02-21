@@ -41,7 +41,7 @@
 						<label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('birthday');?></label>
                         
 						<div class="col-sm-5">
-							<input type="text" class="form-control datepicker" name="birthday" value="" data-start-view="2">
+							<input type="text" class="form-control datepicker" name="birthday" value="" data-start-view="2" data-validate="required" data-message-required="<?php echo get_phrase('value_required');?>" value="" autofocus>
 						</div> 
 					</div>
 					
@@ -85,7 +85,7 @@
                     
                     <div class="form-group">
 						<div class="col-sm-offset-3 col-sm-5">
-							<button type="submit" class="btn btn-info"><?php echo get_phrase('add_teacher');?></button>
+							<button type="submit" class="btn btn-info"><?php echo get_phrase('submit');?></button>
 						</div>
 					</div>
                 <?php echo form_close();?>

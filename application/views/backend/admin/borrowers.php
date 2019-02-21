@@ -1,7 +1,7 @@
                 <a href="javascript:;" onclick="showAjaxModal('<?php echo base_url();?>index.php?modal/popup/modal_borrower_add/');" 
                 class="btn btn-primary">
                   <i class="entypo-plus-circled"></i>
-                  <?php echo get_phrase('Add New Borrower');?>
+                  <?php echo get_phrase('Borrow Books');?>
                 </a> 
             <!-- SELECT * FROM student, teacher, librarian, books -->
                 <br><br>
@@ -11,7 +11,7 @@
                             <li class="active">
                                 <a href="#home" data-toggle="tab">
                                     <span class="visible-xs"><i class="entypo-users"></i></span>
-                                    <span class="hidden-xs"><?php echo get_phrase('list_of_borrowers');?></span>
+                                    <span class="hidden-xs"><?php echo get_phrase('unreturned_books');?></span>
                                 </a>
                             </li>
                             <li >

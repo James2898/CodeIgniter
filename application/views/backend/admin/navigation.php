@@ -133,9 +133,12 @@
 
         
 
-         <!-- LIBRARY -->
-        <li class="<?php if ($page_name == 'book') echo 'active'; ?> ">
-            <a href="#">
+       <li class="<?php
+        if ($page_name == 'book' ||
+                $page_name == 'borrowers')
+            echo 'opened active';
+        ?> ">
+        <a href="#">
                 <i class="entypo-book"></i>
                 <span><?php echo get_phrase('library'); ?></span>
             </a>
@@ -155,24 +158,6 @@
 
        
 
-        <!-- NOTICEBOARD -->
-        <li class="<?php if ($page_name == 'noticeboard') echo 'active'; ?> ">
-            <a href="<?php echo base_url(); ?>index.php?admin/noticeboard">
-                <i class="entypo-doc-text-inv"></i>
-                <span><?php echo get_phrase('noticeboard'); ?></span>
-            </a>
-        </li>
-
-     
-
-      
-        <!-- ACCOUNT -->
-        <li class="<?php if ($page_name == 'manage_profile') echo 'active'; ?> ">
-            <a href="<?php echo base_url(); ?>index.php?admin/manage_profile">
-                <i class="entypo-lock"></i>
-                <span><?php echo get_phrase('account'); ?></span>
-            </a>
-        </li>
 
     </ul>
 

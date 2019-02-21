@@ -39,7 +39,7 @@
 						 <a href="javascript:;" onclick="showAjaxModal('<?php echo base_url();?>index.php?modal/popup/modal_parent_add_student_reg/');" 
 		            	class="btn btn-success ">
 		                	<i class="entypo-plus-circled"></i>
-		            		<?php echo get_phrase('Add_New_Parent');?>
+		            		<?php echo get_phrase('Add_Parent');?>
 		                </a> 
 					</div>
 	
@@ -104,13 +104,7 @@
 			                </div>
 					</div>
 					
-					<div class="form-group">
-						<label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('roll');?></label>
-                        
-						<div class="col-sm-5">
-							<input type="text" class="form-control" name="roll" value="" data-validate="required" data-message-required="<?php echo get_phrase('value_required');?>" >
-						</div> 
-					</div>
+				
 					
 					<div class="form-group">
 						<label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('birthday');?></label>
@@ -160,7 +154,7 @@
                     <div class="form-group">
 						<div class="col-sm-offset-3 col-sm-5">
 							<input type="hidden" name="status" value="waiting">
-							<button type="submit" class="btn btn-info"><?php echo get_phrase('add_student');?></button>
+							<button type="submit" class="btn btn-info"><?php echo get_phrase('submit');?></button>
 						</div>
 					</div>
                 <?php echo form_close();?>

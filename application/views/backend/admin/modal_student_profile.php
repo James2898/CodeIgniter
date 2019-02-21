@@ -6,14 +6,7 @@ foreach($student_info as $row):?>
 	
 	<header class="row">
 		
-		<div class="col-sm-3">
-			
-			<a href="#" class="profile-picture">
-				<img src="<?php echo $this->crud_model->get_image_url('student' , $row['student_id']);?>" 
-                	class="img-responsive img-circle" />
-			</a>
-			
-		</div>
+	
 		
 		<div class="col-sm-9">
 			

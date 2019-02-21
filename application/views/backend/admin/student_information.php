@@ -134,11 +134,11 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th width="80"><div><?php echo get_phrase('roll');?></div></th>
+                          
                            
                             <th><div><?php echo get_phrase('name');?></div></th>
                             <th class="span3"><div><?php echo get_phrase('address');?></div></th>
-                            <th><div><?php echo get_phrase('email');?></div></th>
+                  
                             <th><div><?php echo get_phrase('options');?></div></th>
                         </tr>
                     </thead>
@@ -149,10 +149,10 @@
                                 ))->result_array();
                                 foreach($students as $row):?>
                         <tr>
-                            <td><?php echo $row['roll'];?></td>
+                          
                             <td><?php echo $row['fname']." ".$row['mname']." ".$row['lname'];?></td>
                             <td><?php echo $row['address'];?></td>
-                            <td><?php echo $row['email'];?></td>
+                           
                             <td>
                                 
                                 <div class="btn-group">
