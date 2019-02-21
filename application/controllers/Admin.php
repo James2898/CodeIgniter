@@ -352,7 +352,7 @@ class Admin extends CI_Controller
             $data['email']       = $this->input->post('email');
             $data['password']    = $this->input->post('password');
             $this->db->insert('teacher', $data);
-            $teacher_id = $this->db->insert_id();
+            //$teacher_id = $this->db->insert_id();
             move_uploaded_file($_FILES['userfile']['tmp_name'], 'uploads/teacher_image/' . $teacher_id . '.jpg');
             $this->session->set_flashdata('flash_message' , get_phrase('data_added_successfully'));
             $this->email_model->account_opening_email('teacher', $data['email']); //SEND EMAIL ACCOUNT OPENING EMAIL

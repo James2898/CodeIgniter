@@ -53,7 +53,9 @@
 								
 								<td>
 									<?php if ($row['teacher_id'] != '')
-											echo $this->db->get_where('teacher' , array('teacher_id' => $row['teacher_id']))->row()->name;
+											echo $this->db->get_where('teacher' , array('teacher_id' => $row['teacher_id']))->row()->fname." ";
+											echo $this->db->get_where('teacher' , array('teacher_id' => $row['teacher_id']))->row()->mname." ";
+											echo $this->db->get_where('teacher' , array('teacher_id' => $row['teacher_id']))->row()->lname;
 										?>
 								</td>
 								<td>
