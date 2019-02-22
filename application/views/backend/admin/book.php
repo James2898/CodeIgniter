@@ -9,7 +9,7 @@
                   <?php 
                     $teachers   =   $this->db->get_where('teacher' , array('teacher_id'=>$teacher_id))->result_array();
                                 foreach($teachers as $row):
-                    echo get_phrase('Librarian: '.$row['name'] );
+                    echo get_phrase('Librarian: '.$row['fname']." ".$row['lname']." ".$row['mname'] );
                     endforeach
                   ?>
 
